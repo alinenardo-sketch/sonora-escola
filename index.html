@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>SONORA - Monitoramento Sonoro Escolar</title>
@@ -24,7 +26,7 @@ body{
 header{
     background:linear-gradient(135deg,#123c69,#1976a3);
     color:white;
-    padding:35px 20px;
+    padding:38px 20px;
     text-align:center;
 }
 
@@ -44,7 +46,7 @@ header p{
 }
 
 .section-title{
-    margin:35px 0 20px;
+    margin:38px 0 20px;
     color:#123c69;
     font-size:27px;
 }
@@ -106,6 +108,11 @@ header p{
 .vermelho{
     color:#d62828;
 }
+
+
+/* =========================
+   AMBIENTES
+========================= */
 
 .ambientes{
     display:grid;
@@ -170,7 +177,7 @@ header p{
 
 
 /* =========================
-   SEMÁFORO DIGITAL
+   SEMÁFORO
 ========================= */
 
 .semaforo-area{
@@ -204,7 +211,6 @@ header p{
     background:#111827;
     border-radius:30px;
     padding:20px 15px;
-    box-shadow:0 12px 30px rgba(0,0,0,.4);
 }
 
 .luz{
@@ -214,7 +220,6 @@ header p{
     margin:12px auto;
     opacity:.18;
     transition:.3s;
-    border:4px solid rgba(255,255,255,.15);
 }
 
 .luz.acesa{
@@ -258,18 +263,12 @@ header p{
 input[type="range"]{
     width:100%;
     margin:20px 0;
-    cursor:pointer;
 }
 
-.controle{
-    margin-top:15px;
-}
 
-.controle label{
-    display:block;
-    margin-bottom:5px;
-    font-weight:bold;
-}
+/* =========================
+   BOTÕES
+========================= */
 
 .botao{
     display:inline-block;
@@ -324,6 +323,11 @@ input[type="range"]{
     border-radius:20px;
 }
 
+
+/* =========================
+   MAPA
+========================= */
+
 .mapa{
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -362,10 +366,6 @@ input[type="range"]{
     box-shadow:0 8px 25px rgba(0,0,0,.15);
 }
 
-.prototipo h2{
-    margin-bottom:12px;
-}
-
 .prototipo p{
     margin-bottom:15px;
 }
@@ -401,6 +401,10 @@ input[type="range"]{
     gap:18px;
 }
 
+.form-grid .campo-completo{
+    grid-column:1/-1;
+}
+
 label{
     display:block;
     font-weight:bold;
@@ -408,12 +412,73 @@ label{
 }
 
 input,
-select{
+select,
+textarea{
     width:100%;
     padding:12px;
     border:1px solid #ccd6e0;
     border-radius:8px;
     font-size:15px;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+textarea{
+    min-height:100px;
+    resize:vertical;
+}
+
+
+/* =========================
+   ANÁLISE
+========================= */
+
+.analise-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.analise-card{
+    background:#f5f8fc;
+    border-radius:12px;
+    padding:20px;
+    text-align:center;
+    border:1px solid #e1e8f0;
+}
+
+.analise-card h3{
+    color:#123c69;
+    font-size:15px;
+}
+
+.analise-card strong{
+    display:block;
+    font-size:30px;
+    margin-top:5px;
+}
+
+.periodos{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.periodo{
+    padding:20px;
+    background:white;
+    border-radius:12px;
+    border:2px solid #e1e8f0;
+}
+
+.periodo h3{
+    color:#123c69;
+    margin-bottom:8px;
+}
+
+.periodo-valor{
+    font-size:28px;
+    font-weight:bold;
 }
 
 
@@ -533,7 +598,9 @@ footer{
     .ambientes,
     .graficos,
     .acessibilidade,
-    .recomendacoes{
+    .recomendacoes,
+    .analise-grid,
+    .periodos{
         grid-template-columns:1fr 1fr;
     }
 
@@ -555,7 +622,9 @@ footer{
     .acessibilidade,
     .recomendacoes,
     .mapa,
-    .form-grid{
+    .form-grid,
+    .analise-grid,
+    .periodos{
         grid-template-columns:1fr;
     }
 
@@ -563,21 +632,14 @@ footer{
         grid-template-columns:1fr 1fr;
     }
 
-    .semaforo-layout{
-        gap:25px;
-    }
-
 }
 
 </style>
+
 </head>
 
 <body>
 
-
-<!-- =========================
-     CABEÇALHO
-========================= -->
 
 <header>
 
@@ -609,13 +671,12 @@ footer{
     <p>
         O SONORA é uma proposta tecnológica para observar
         os níveis de ruído em diferentes ambientes da escola
-        e transformar essas informações em dados visuais
-        de fácil compreensão.
+        e transformar essas informações em dados visuais.
     </p>
 
     <p>
         O projeto integra tecnologia, Física, programação,
-        acessibilidade e inclusão.
+        análise de dados, acessibilidade e inclusão.
     </p>
 
 </div>
@@ -623,13 +684,13 @@ footer{
 
 <div class="disclaimer">
 
-    <strong>⚠️ Atenção:</strong>
+    <strong>⚠️ Importante:</strong>
 
-    Os valores apresentados inicialmente são
-    <strong>dados simulados</strong> para demonstração.
+    Os valores iniciais apresentados são
+    <strong>dados simulados</strong>.
 
-    O sensor KY-037 fornece uma leitura relativa da
-    intensidade sonora. Sem calibração adequada,
+    O sensor KY-037 fornece uma leitura relativa
+    da intensidade sonora. Sem calibração adequada,
     ele não deve ser considerado um medidor profissional
     de decibéis.
 
@@ -694,7 +755,6 @@ footer{
     🚦 Semáforo Sonoro Digital
 </h2>
 
-
 <div class="semaforo-area">
 
     <h2>
@@ -702,16 +762,13 @@ footer{
     </h2>
 
     <p>
-        Mova o controle para simular diferentes
-        níveis de intensidade sonora e observe
-        o funcionamento do semáforo.
+        Ajuste o nível para observar o comportamento
+        do semáforo digital.
     </p>
 
 
     <div class="semaforo-layout">
 
-
-        <!-- SEMÁFORO -->
 
         <div class="semaforo">
 
@@ -733,8 +790,6 @@ footer{
         </div>
 
 
-        <!-- LEITURA -->
-
         <div class="leitura">
 
             <div>
@@ -752,38 +807,22 @@ footer{
                 id="statusSemaforo"
                 class="leitura-status amarelo"
             >
-                ATENÇÃO
+                NÍVEL DE ATENÇÃO
             </div>
 
-            <div class="controle">
 
-                <label for="controleSom">
-                    Ajuste o nível:
-                </label>
-
-                <input
-                    type="range"
-                    id="controleSom"
-                    min="0"
-                    max="100"
-                    value="50"
-                    oninput="atualizarSemaforo()"
-                >
-
-            </div>
+            <input
+                type="range"
+                id="controleSom"
+                min="0"
+                max="100"
+                value="50"
+                oninput="atualizarSemaforo()"
+            >
 
         </div>
 
     </div>
-
-
-    <p style="margin-top:25px">
-
-        💡 A lógica do semáforo digital reproduz
-        conceitualmente a lógica utilizada no
-        protótipo Arduino + KY-037.
-
-    </p>
 
 </div>
 
@@ -807,7 +846,7 @@ footer{
 ========================= -->
 
 <h2 class="section-title">
-    📈 Comparação dos níveis sonoros
+    📈 Comparação dos níveis
 </h2>
 
 <div class="graficos">
@@ -828,7 +867,7 @@ footer{
     <div class="grafico-box">
 
         <h3>
-            Histórico das medições
+            Histórico
         </h3>
 
         <canvas
@@ -852,8 +891,7 @@ footer{
 <div class="info">
 
     <p>
-        Clique em um ambiente para consultar
-        seus dados.
+        Clique em um ambiente para consultar seus dados.
     </p>
 
     <div
@@ -865,7 +903,7 @@ footer{
 
 
 <!-- =========================
-     PROTÓTIPO CIRKIT
+     CIRKIT
 ========================= -->
 
 <h2 class="section-title">
@@ -880,13 +918,12 @@ footer{
 
     <p>
 
-        O protótipo eletrônico desenvolvido no
-        Cirkit Designer utiliza Arduino Uno,
-        sensor KY-037 e LEDs para representar
-        diferentes níveis de intensidade sonora.
+        O protótipo desenvolvido no Cirkit Designer
+        utiliza Arduino Uno, sensor KY-037 e LEDs
+        para representar diferentes níveis de
+        intensidade sonora.
 
     </p>
-
 
     <p>
 
@@ -911,7 +948,7 @@ footer{
             </strong>
 
             <p>
-                Unidade de controle
+                Controle
             </p>
 
         </div>
@@ -928,7 +965,7 @@ footer{
             </strong>
 
             <p>
-                Sensor de som
+                Sensor
             </p>
 
         </div>
@@ -937,7 +974,7 @@ footer{
         <div class="componente">
 
             <div class="icone">
-                🟢
+                💡
             </div>
 
             <strong>
@@ -945,7 +982,7 @@ footer{
             </strong>
 
             <p>
-                Indicadores visuais
+                Indicadores
             </p>
 
         </div>
@@ -962,7 +999,7 @@ footer{
             </strong>
 
             <p>
-                Classificação sonora
+                Classificação
             </p>
 
         </div>
@@ -983,18 +1020,20 @@ footer{
 
 
 <!-- =========================
-     REGISTRO
+     NOVA COLETA
 ========================= -->
 
 <h2 class="section-title">
-    📝 Registrar uma medição
+    📝 Registrar observação de campo
 </h2>
 
 <div class="formulario">
 
-    <p>
-        Registre uma observação para criar
-        um histórico local de medições.
+    <p style="margin-bottom:20px">
+
+        Utilize este formulário durante a coleta
+        de dados na escola.
+
     </p>
 
 
@@ -1004,32 +1043,32 @@ footer{
         <div>
 
             <label for="localMedicao">
-                Ambiente
+                🏫 Ambiente
             </label>
 
             <select id="localMedicao">
 
-                <option>
+                <option value="Biblioteca">
                     Biblioteca
                 </option>
 
-                <option>
+                <option value="Sala de aula">
                     Sala de aula
                 </option>
 
-                <option>
+                <option value="Corredor">
                     Corredor
                 </option>
 
-                <option>
+                <option value="Refeitório">
                     Refeitório
                 </option>
 
-                <option>
+                <option value="Pátio">
                     Pátio
                 </option>
 
-                <option>
+                <option value="Quadra">
                     Quadra
                 </option>
 
@@ -1041,7 +1080,7 @@ footer{
         <div>
 
             <label for="valorMedicao">
-                Valor da medição
+                🔢 Valor observado
             </label>
 
             <input
@@ -1054,6 +1093,122 @@ footer{
 
         </div>
 
+
+        <div>
+
+            <label for="dataMedicao">
+                📅 Data
+            </label>
+
+            <input
+                type="date"
+                id="dataMedicao"
+            >
+
+        </div>
+
+
+        <div>
+
+            <label for="horaMedicao">
+                🕐 Horário
+            </label>
+
+            <input
+                type="time"
+                id="horaMedicao"
+            >
+
+        </div>
+
+
+        <div>
+
+            <label for="atividadeMedicao">
+                🎯 Atividade realizada
+            </label>
+
+            <select id="atividadeMedicao">
+
+                <option value="Aula">
+                    Aula
+                </option>
+
+                <option value="Intervalo">
+                    Intervalo
+                </option>
+
+                <option value="Alimentação">
+                    Alimentação
+                </option>
+
+                <option value="Educação Física">
+                    Educação Física
+                </option>
+
+                <option value="Entrada">
+                    Entrada
+                </option>
+
+                <option value="Saída">
+                    Saída
+                </option>
+
+                <option value="Circulação">
+                    Circulação
+                </option>
+
+                <option value="Outra">
+                    Outra
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div>
+
+            <label for="periodoMedicao">
+                ⏰ Período
+            </label>
+
+            <select id="periodoMedicao">
+
+                <option value="Manhã">
+                    Manhã
+                </option>
+
+                <option value="Intervalo">
+                    Intervalo
+                </option>
+
+                <option value="Almoço">
+                    Almoço
+                </option>
+
+                <option value="Tarde">
+                    Tarde
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="campo-completo">
+
+            <label for="observacaoMedicao">
+                📝 Observação
+            </label>
+
+            <textarea
+                id="observacaoMedicao"
+                placeholder="Ex.: Muitos estudantes no ambiente; atividade esportiva; conversa intensa; portas abertas..."
+            ></textarea>
+
+        </div>
+
     </div>
 
 
@@ -1061,8 +1216,167 @@ footer{
         class="botao"
         onclick="registrarMedicao()"
     >
-        ➕ Registrar medição
+        ➕ Registrar observação
     </button>
+
+</div>
+
+
+<!-- =========================
+     CENTRAL DE ANÁLISE
+========================= -->
+
+<h2 class="section-title">
+    🧠 Central de análise
+</h2>
+
+<div class="info">
+
+    <div class="analise-grid">
+
+
+        <div class="analise-card">
+
+            <h3>
+                Total de registros
+            </h3>
+
+            <strong id="totalRegistros">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="analise-card">
+
+            <h3>
+                Média
+            </h3>
+
+            <strong id="mediaRegistros">
+                —
+            </strong>
+
+        </div>
+
+
+        <div class="analise-card">
+
+            <h3>
+                Maior registro
+            </h3>
+
+            <strong id="maiorRegistro">
+                —
+            </strong>
+
+        </div>
+
+
+        <div class="analise-card">
+
+            <h3>
+                Menor registro
+            </h3>
+
+            <strong id="menorRegistro">
+                —
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <h3 style="margin:25px 0 15px;color:#123c69">
+        📅 Distribuição por período
+    </h3>
+
+
+    <div class="periodos">
+
+
+        <div class="periodo">
+
+            <h3>
+                🌅 Manhã
+            </h3>
+
+            <div
+                id="periodoManha"
+                class="periodo-valor"
+            >
+                —
+            </div>
+
+        </div>
+
+
+        <div class="periodo">
+
+            <h3>
+                🔔 Intervalo
+            </h3>
+
+            <div
+                id="periodoIntervalo"
+                class="periodo-valor"
+            >
+                —
+            </div>
+
+        </div>
+
+
+        <div class="periodo">
+
+            <h3>
+                🍽️ Almoço
+            </h3>
+
+            <div
+                id="periodoAlmoco"
+                class="periodo-valor"
+            >
+                —
+            </div>
+
+        </div>
+
+
+        <div class="periodo">
+
+            <h3>
+                ☀️ Tarde
+            </h3>
+
+            <div
+                id="periodoTarde"
+                class="periodo-valor"
+            >
+                —
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div
+        id="textoAnalise"
+        style="
+        margin-top:25px;
+        padding:20px;
+        background:#eef6fb;
+        border-radius:12px;
+        "
+    >
+
+        Registre algumas observações para que
+        o sistema possa apresentar uma análise.
+
+    </div>
 
 </div>
 
@@ -1077,9 +1391,9 @@ footer{
 
 <div class="info tabela-container">
 
-    <p>
+    <p style="margin-bottom:15px">
 
-        Medições registradas neste navegador:
+        Registros armazenados neste navegador:
 
         <strong id="quantidadeHistorico">
             0
@@ -1111,6 +1425,14 @@ footer{
                 </th>
 
                 <th>
+                    Período
+                </th>
+
+                <th>
+                    Atividade
+                </th>
+
+                <th>
                     Classificação
                 </th>
 
@@ -1119,9 +1441,7 @@ footer{
         </thead>
 
 
-        <tbody id="historico">
-
-        </tbody>
+        <tbody id="historico"></tbody>
 
     </table>
 
@@ -1148,10 +1468,18 @@ footer{
 
     <p>
 
-        Essa característica varia de pessoa para pessoa.
-        Por isso, o projeto não utiliza o nível sonoro
-        como diagnóstico, mas como uma ferramenta de
-        observação e reflexão sobre o ambiente escolar.
+        Essa característica varia entre as pessoas.
+        Portanto, os dados do SONORA não representam
+        diagnóstico ou avaliação clínica.
+
+    </p>
+
+    <p>
+
+        O objetivo é identificar características
+        do ambiente que podem contribuir para
+        discussões sobre conforto, organização
+        e acessibilidade.
 
     </p>
 
@@ -1164,14 +1492,12 @@ footer{
     <div class="acess-card">
 
         <h3>
-            🔊 Ambiente sonoro
+            🔊 Ambiente
         </h3>
 
         <p>
-
             Identificar locais e horários
             com maior intensidade sonora.
-
         </p>
 
     </div>
@@ -1184,10 +1510,8 @@ footer{
         </h3>
 
         <p>
-
             Considerar diferentes necessidades
             sensoriais dos estudantes.
-
         </p>
 
     </div>
@@ -1200,10 +1524,8 @@ footer{
         </h3>
 
         <p>
-
-            Transformar observações em
-            informações visuais.
-
+            Transformar observações em informações
+            que possam apoiar decisões.
         </p>
 
     </div>
@@ -1212,11 +1534,11 @@ footer{
 
 
 <!-- =========================
-     RECOMENDAÇÕES
+     ESTRATÉGIAS
 ========================= -->
 
 <h2 class="section-title">
-    💡 Estratégias
+    💡 Estratégias de melhoria
 </h2>
 
 <div class="recomendacoes">
@@ -1229,10 +1551,8 @@ footer{
         </h3>
 
         <p>
-
             Identificar fontes de ruído e
             horários de maior intensidade.
-
         </p>
 
     </div>
@@ -1245,10 +1565,8 @@ footer{
         </h3>
 
         <p>
-
             Avaliar a organização das atividades
-            e dos espaços escolares.
-
+            e dos espaços.
         </p>
 
     </div>
@@ -1261,10 +1579,8 @@ footer{
         </h3>
 
         <p>
-
             Considerar estratégias para estudantes
             que apresentam maior sensibilidade sonora.
-
         </p>
 
     </div>
@@ -1273,7 +1589,7 @@ footer{
 
 
 <!-- =========================
-     REFERÊNCIAS
+     BASE
 ========================= -->
 
 <h2 class="section-title">
@@ -1284,17 +1600,18 @@ footer{
 
     <p>
 
-        O projeto integra conceitos de Física,
+        O SONORA integra conceitos de Física,
         programação, tecnologia educacional,
-        visualização de dados e acessibilidade.
+        visualização de dados, acessibilidade
+        e inclusão.
 
     </p>
 
     <p>
 
-        A classificação do semáforo é uma estratégia
-        visual criada para o projeto e não representa
-        diagnóstico médico ou avaliação clínica.
+        A classificação utilizada pelo semáforo
+        é uma estratégia visual do projeto.
+        Ela não representa diagnóstico médico.
 
     </p>
 
@@ -1337,10 +1654,6 @@ footer{
 </div>
 
 
-<!-- =========================
-     RODAPÉ
-========================= -->
-
 <footer>
 
     <strong>
@@ -1363,7 +1676,7 @@ footer{
 
 
 /* =========================
-   AMBIENTES
+   DADOS DOS AMBIENTES
 ========================= */
 
 const ambientes = [
@@ -1460,36 +1773,36 @@ function classificar(valor){
 
 
 /* =========================
-   SEMÁFORO DIGITAL
+   SEMÁFORO
 ========================= */
 
 function atualizarSemaforo(){
 
-    const controle =
-        document.getElementById(
-            "controleSom"
-        );
-
     const valor =
-        Number(controle.value);
+        Number(
+            document.getElementById(
+                "controleSom"
+            ).value
+        );
 
 
     document.getElementById(
         "valorSemaforo"
-    ).textContent = valor;
+    ).textContent =
+        valor;
 
 
-    const luzVerde =
+    const verde =
         document.getElementById(
             "luzVerde"
         );
 
-    const luzAmarela =
+    const amarelo =
         document.getElementById(
             "luzAmarela"
         );
 
-    const luzVermelha =
+    const vermelho =
         document.getElementById(
             "luzVermelha"
         );
@@ -1500,24 +1813,16 @@ function atualizarSemaforo(){
         );
 
 
-    luzVerde.classList.remove(
-        "acesa"
-    );
+    verde.classList.remove("acesa");
 
-    luzAmarela.classList.remove(
-        "acesa"
-    );
+    amarelo.classList.remove("acesa");
 
-    luzVermelha.classList.remove(
-        "acesa"
-    );
+    vermelho.classList.remove("acesa");
 
 
     if(valor < 50){
 
-        luzVerde.classList.add(
-            "acesa"
-        );
+        verde.classList.add("acesa");
 
         status.textContent =
             "NÍVEL BAIXO";
@@ -1529,9 +1834,7 @@ function atualizarSemaforo(){
 
     else if(valor < 70){
 
-        luzAmarela.classList.add(
-            "acesa"
-        );
+        amarelo.classList.add("acesa");
 
         status.textContent =
             "NÍVEL DE ATENÇÃO";
@@ -1543,9 +1846,7 @@ function atualizarSemaforo(){
 
     else{
 
-        luzVermelha.classList.add(
-            "acesa"
-        );
+        vermelho.classList.add("acesa");
 
         status.textContent =
             "NÍVEL ELEVADO";
@@ -1568,6 +1869,7 @@ function mostrarAmbientes(){
         document.getElementById(
             "ambientes"
         );
+
 
     container.innerHTML = "";
 
@@ -1604,7 +1906,7 @@ function mostrarAmbientes(){
                     </span>
 
                     <p style="margin-top:12px">
-                        Clique para ver detalhes
+                        Clique para detalhes
                     </p>
 
                 </div>
@@ -1624,7 +1926,9 @@ function mostrarAmbientes(){
 function atualizarResumo(){
 
     let tranquilos = 0;
+
     let atencao = 0;
+
     let elevados = 0;
 
 
@@ -1667,7 +1971,7 @@ function atualizarResumo(){
 
 
 /* =========================
-   GRÁFICO
+   GRÁFICO AMBIENTES
 ========================= */
 
 function mostrarGraficoAmbientes(){
@@ -1676,6 +1980,7 @@ function mostrarGraficoAmbientes(){
         document.getElementById(
             "graficoAmbientes"
         );
+
 
     container.innerHTML = "";
 
@@ -1690,12 +1995,18 @@ function mostrarGraficoAmbientes(){
             "#168a3a";
 
 
-        if(status.classe === "amarelo")
-            cor = "#e0a800";
+        if(
+            status.classe === "amarelo"
+        )
+            cor =
+                "#e0a800";
 
 
-        if(status.classe === "vermelho")
-            cor = "#d62828";
+        if(
+            status.classe === "vermelho"
+        )
+            cor =
+                "#d62828";
 
 
         container.innerHTML += `
@@ -1745,6 +2056,7 @@ function mostrarMapa(){
         document.getElementById(
             "mapa"
         );
+
 
     mapa.innerHTML = "";
 
@@ -1804,6 +2116,7 @@ function mostrarDetalhes(index){
     const ambiente =
         ambientes[index];
 
+
     const status =
         classificar(
             ambiente.valor
@@ -1851,11 +2164,9 @@ function mostrarDetalhes(index){
         </h3>
 
         <p>
-
             Este valor é utilizado como referência
-            visual no protótipo SONORA.
-            Os valores iniciais são simulados.
-
+            visual no projeto. Os valores iniciais
+            são simulados.
         </p>
 
     `;
@@ -1932,7 +2243,7 @@ function salvarHistorico(historico){
 
 
 /* =========================
-   REGISTRAR
+   REGISTRAR MEDIÇÃO
 ========================= */
 
 function registrarMedicao(){
@@ -1951,6 +2262,36 @@ function registrarMedicao(){
         );
 
 
+    const data =
+        document.getElementById(
+            "dataMedicao"
+        ).value;
+
+
+    const hora =
+        document.getElementById(
+            "horaMedicao"
+        ).value;
+
+
+    const atividade =
+        document.getElementById(
+            "atividadeMedicao"
+        ).value;
+
+
+    const periodo =
+        document.getElementById(
+            "periodoMedicao"
+        ).value;
+
+
+    const observacao =
+        document.getElementById(
+            "observacaoMedicao"
+        ).value;
+
+
     if(
         isNaN(valor) ||
         valor < 0 ||
@@ -1966,32 +2307,48 @@ function registrarMedicao(){
     }
 
 
-    const agora =
-        new Date();
+    if(!data){
+
+        alert(
+            "Informe a data da medição."
+        );
+
+        return;
+
+    }
+
+
+    if(!hora){
+
+        alert(
+            "Informe o horário da medição."
+        );
+
+        return;
+
+    }
 
 
     const medicao = {
 
-        data:
-            agora.toLocaleDateString(
-                "pt-BR"
-            ),
+        data:data,
 
-        horario:
-            agora.toLocaleTimeString(
-                "pt-BR",
-                {
-                    hour:"2-digit",
-                    minute:"2-digit"
-                }
-            ),
+        horario:hora,
 
         local:local,
 
         valor:valor,
 
+        periodo:periodo,
+
+        atividade:atividade,
+
+        observacao:observacao,
+
         classificacao:
-            classificar(valor).nome
+            classificar(
+                valor
+            ).nome
 
     };
 
@@ -2015,13 +2372,20 @@ function registrarMedicao(){
     ).value = "";
 
 
+    document.getElementById(
+        "observacaoMedicao"
+    ).value = "";
+
+
     mostrarHistorico();
 
     mostrarGraficoHistorico();
 
+    atualizarAnalise();
+
 
     alert(
-        "Medição registrada com sucesso!"
+        "Observação registrada com sucesso!"
     );
 
 }
@@ -2060,8 +2424,8 @@ function mostrarHistorico(){
 
             <tr>
 
-                <td colspan="5">
-                    Nenhuma medição registrada ainda.
+                <td colspan="7">
+                    Nenhuma observação registrada ainda.
                 </td>
 
             </tr>
@@ -2089,7 +2453,7 @@ function mostrarHistorico(){
                 <tr>
 
                     <td>
-                        ${m.data}
+                        ${formatarData(m.data)}
                     </td>
 
                     <td>
@@ -2102,6 +2466,14 @@ function mostrarHistorico(){
 
                     <td>
                         ${m.valor}
+                    </td>
+
+                    <td>
+                        ${m.periodo}
+                    </td>
+
+                    <td>
+                        ${m.atividade}
                     </td>
 
                     <td class="${status.classe}">
@@ -2117,6 +2489,337 @@ function mostrarHistorico(){
             `;
 
         });
+
+}
+
+
+/* =========================
+   FORMATAR DATA
+========================= */
+
+function formatarData(data){
+
+    if(!data)
+        return "—";
+
+
+    const partes =
+        data.split("-");
+
+
+    if(partes.length !== 3)
+        return data;
+
+
+    return (
+        partes[2] +
+        "/" +
+        partes[1] +
+        "/" +
+        partes[0]
+    );
+
+}
+
+
+/* =========================
+   ANÁLISE
+========================= */
+
+function atualizarAnalise(){
+
+    const historico =
+        getHistorico();
+
+
+    const total =
+        historico.length;
+
+
+    document.getElementById(
+        "totalRegistros"
+    ).textContent =
+        total;
+
+
+    if(total === 0){
+
+        document.getElementById(
+            "mediaRegistros"
+        ).textContent =
+            "—";
+
+
+        document.getElementById(
+            "maiorRegistro"
+        ).textContent =
+            "—";
+
+
+        document.getElementById(
+            "menorRegistro"
+        ).textContent =
+            "—";
+
+
+        document.getElementById(
+            "periodoManha"
+        ).textContent =
+            "—";
+
+
+        document.getElementById(
+            "periodoIntervalo"
+        ).textContent =
+            "—";
+
+
+        document.getElementById(
+            "periodoAlmoco"
+        ).textContent =
+            "—";
+
+
+        document.getElementById(
+            "periodoTarde"
+        ).textContent =
+            "—";
+
+
+        document.getElementById(
+            "textoAnalise"
+        ).innerHTML =
+
+            "Registre algumas observações para que o sistema possa apresentar uma análise.";
+
+        return;
+
+    }
+
+
+    const valores =
+        historico.map(
+            m => Number(m.valor)
+        );
+
+
+    const soma =
+        valores.reduce(
+            (a,b)=>a+b,
+            0
+        );
+
+
+    const media =
+        soma / total;
+
+
+    const maior =
+        Math.max(
+            ...valores
+        );
+
+
+    const menor =
+        Math.min(
+            ...valores
+        );
+
+
+    document.getElementById(
+        "mediaRegistros"
+    ).textContent =
+        media.toFixed(1);
+
+
+    document.getElementById(
+        "maiorRegistro"
+    ).textContent =
+        maior;
+
+
+    document.getElementById(
+        "menorRegistro"
+    ).textContent =
+        menor;
+
+
+    const periodos = {
+
+        "Manhã":[],
+        "Intervalo":[],
+        "Almoço":[],
+        "Tarde":[]
+
+    };
+
+
+    historico.forEach(
+        m=>{
+
+            if(
+                periodos[m.periodo]
+            ){
+
+                periodos[
+                    m.periodo
+                ].push(
+                    Number(m.valor)
+                );
+
+            }
+
+        }
+    );
+
+
+    calcularPeriodo(
+        "periodoManha",
+        periodos["Manhã"]
+    );
+
+
+    calcularPeriodo(
+        "periodoIntervalo",
+        periodos["Intervalo"]
+    );
+
+
+    calcularPeriodo(
+        "periodoAlmoco",
+        periodos["Almoço"]
+    );
+
+
+    calcularPeriodo(
+        "periodoTarde",
+        periodos["Tarde"]
+    );
+
+
+    let texto = `
+
+        <strong>
+            📊 Análise dos registros
+        </strong>
+
+        <p style="margin-top:10px">
+
+            Foram registrados
+            <strong>${total}</strong>
+            dados, com média de
+            <strong>${media.toFixed(1)}</strong>.
+
+        </p>
+
+    `;
+
+
+    if(
+        media < 50
+    ){
+
+        texto += `
+
+            <p>
+                A média dos registros está na faixa
+                classificada pelo projeto como tranquila.
+            </p>
+
+        `;
+
+    }
+
+    else if(
+        media < 70
+    ){
+
+        texto += `
+
+            <p>
+                A média dos registros está na faixa
+                de atenção. Vale observar os horários,
+                atividades e fontes de ruído associados.
+            </p>
+
+        `;
+
+    }
+
+    else{
+
+        texto += `
+
+            <p>
+                A média dos registros está na faixa
+                elevada definida pelo projeto.
+                É importante investigar quais atividades,
+                locais e horários estão relacionados aos registros.
+            </p>
+
+        `;
+
+    }
+
+
+    texto += `
+
+        <p>
+            O maior registro foi
+            <strong>${maior}</strong>
+            e o menor foi
+            <strong>${menor}</strong>.
+        </p>
+
+        <p>
+            Os dados devem ser interpretados em conjunto
+            com observações do ambiente e das atividades
+            realizadas no momento da medição.
+        </p>
+
+    `;
+
+
+    document.getElementById(
+        "textoAnalise"
+    ).innerHTML =
+        texto;
+
+}
+
+
+function calcularPeriodo(id,dados){
+
+    const elemento =
+        document.getElementById(id);
+
+
+    if(
+        !dados ||
+        dados.length === 0
+    ){
+
+        elemento.textContent =
+            "Sem dados";
+
+        return;
+
+    }
+
+
+    const soma =
+        dados.reduce(
+            (a,b)=>a+b,
+            0
+        );
+
+
+    const media =
+        soma / dados.length;
+
+
+    elemento.textContent =
+        media.toFixed(1);
 
 }
 
@@ -2161,11 +2864,13 @@ function mostrarGraficoHistorico(){
         ctx.fillStyle =
             "#666";
 
+
         ctx.fillText(
             "Registre medições para visualizar o histórico.",
             20,
             100
         );
+
 
         return;
 
@@ -2255,17 +2960,23 @@ function mostrarGraficoHistorico(){
                 );
 
 
-            if(i === 0)
+            if(i === 0){
+
                 ctx.moveTo(
                     x,
                     y
                 );
 
-            else
+            }
+
+            else{
+
                 ctx.lineTo(
                     x,
                     y
                 );
+
+            }
 
         }
     );
@@ -2344,7 +3055,48 @@ function inicializar(){
 
     mostrarGraficoHistorico();
 
+    atualizarAnalise();
+
     atualizarSemaforo();
+
+
+    const hoje =
+        new Date();
+
+
+    const ano =
+        hoje.getFullYear();
+
+
+    const mes =
+        String(
+            hoje.getMonth()+1
+        ).padStart(
+            2,
+            "0"
+        );
+
+
+    const dia =
+        String(
+            hoje.getDate()
+        ).padStart(
+            2,
+            "0"
+        );
+
+
+    document.getElementById(
+        "dataMedicao"
+    ).value =
+        `${ano}-${mes}-${dia}`;
+
+
+    document.getElementById(
+        "horaMedicao"
+    ).value =
+        hoje.toTimeString()
+        .slice(0,5);
 
 }
 
