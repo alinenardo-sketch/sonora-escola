@@ -330,7 +330,78 @@
                 padding: 28px;
             }
         }
+.grafico-section {
+    margin-top: 40px;
+    padding: 30px;
+    background: #0d2033;
+    border: 1px solid #1e405c;
+    border-radius: 20px;
+}
 
+.titulo-secao span {
+    color: #4db8ff;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.titulo-secao h2 {
+    margin: 8px 0;
+    font-size: 28px;
+}
+
+.titulo-secao p {
+    color: #9db3c7;
+    margin-bottom: 30px;
+}
+
+.grafico {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.barra-item {
+    width: 100%;
+}
+
+.barra-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    color: #eaf4ff;
+}
+
+.barra-info span {
+    color: #8fcfff;
+    font-weight: bold;
+}
+
+.barra-fundo {
+    width: 100%;
+    height: 16px;
+    background: #162c40;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.barra {
+    height: 100%;
+    border-radius: 20px;
+    transition: width 0.5s ease;
+}
+
+.barra.verde {
+    background: #4ade80;
+}
+
+.barra.amarelo {
+    background: #facc15;
+}
+
+.barra.vermelho {
+    background: #ef4444;
+}
     </style>
 
 </head>
@@ -450,7 +521,75 @@
 
 
         <div class="ambientes" id="listaAmbientes"></div>
+<section class="grafico-section">
+    <div class="titulo-secao">
+        <span>ANÁLISE</span>
+        <h2>Comparação dos níveis de ruído</h2>
+        <p>Visualização dos níveis sonoros registrados nos diferentes ambientes da escola.</p>
+    </div>
 
+    <div class="grafico">
+        <div class="barra-item">
+            <div class="barra-info">
+                <strong>Biblioteca</strong>
+                <span>38 dB</span>
+            </div>
+            <div class="barra-fundo">
+                <div class="barra verde" style="width: 38%;"></div>
+            </div>
+        </div>
+
+        <div class="barra-item">
+            <div class="barra-info">
+                <strong>Sala de aula</strong>
+                <span>52 dB</span>
+            </div>
+            <div class="barra-fundo">
+                <div class="barra amarelo" style="width: 52%;"></div>
+            </div>
+        </div>
+
+        <div class="barra-item">
+            <div class="barra-info">
+                <strong>Corredor</strong>
+                <span>61 dB</span>
+            </div>
+            <div class="barra-fundo">
+                <div class="barra amarelo" style="width: 61%;"></div>
+            </div>
+        </div>
+
+        <div class="barra-item">
+            <div class="barra-info">
+                <strong>Refeitório</strong>
+                <span>76 dB</span>
+            </div>
+            <div class="barra-fundo">
+                <div class="barra vermelho" style="width: 76%;"></div>
+            </div>
+        </div>
+
+        <div class="barra-item">
+            <div class="barra-info">
+                <strong>Pátio</strong>
+                <span>79 dB</span>
+            </div>
+            <div class="barra-fundo">
+                <div class="barra vermelho" style="width: 79%;"></div>
+            </div>
+        </div>
+
+        <div class="barra-item">
+            <div class="barra-info">
+                <strong>Quadra</strong>
+                <span>84 dB</span>
+            </div>
+            <div class="barra-fundo">
+                <div class="barra vermelho" style="width: 84%;"></div>
+            </div>
+        </div>
+    </div>
+</section>
     </section>
 
 
