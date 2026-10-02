@@ -565,6 +565,52 @@
     margin-bottom: 4px;
     color: #8fcfff;
 }
+        .historico-section {
+    margin-top: 40px;
+    padding: 30px;
+    background: #0d2033;
+    border: 1px solid #1e405c;
+    border-radius: 20px;
+}
+
+.tabela-container {
+    margin-top: 25px;
+    overflow-x: auto;
+}
+
+.tabela-historico {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabela-historico th,
+.tabela-historico td {
+    padding: 16px;
+    text-align: left;
+    border-bottom: 1px solid #29475e;
+}
+
+.tabela-historico th {
+    color: #8fcfff;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.tabela-historico td {
+    color: #eaf4ff;
+}
+
+.status-verde,
+.status-amarelo,
+.status-vermelho {
+    font-weight: bold;
+}
+
+@media (max-width: 700px) {
+    .tabela-historico {
+        min-width: 600px;
+    }
+}
     </style>
 
 </head>
@@ -822,8 +868,70 @@
         </div>
     </div>
 </section>
-    </section>
+        <section class="historico-section">
+    <div class="titulo-secao">
+        <span>HISTÓRICO</span>
+        <h2>Histórico de medições</h2>
+        <p>Acompanhamento dos níveis sonoros registrados nos ambientes.</p>
+    </div>
 
+    <div class="tabela-container">
+        <table class="tabela-historico">
+            <thead>
+                <tr>
+                    <th>Horário</th>
+                    <th>Ambiente</th>
+                    <th>Nível</th>
+                    <th>Situação</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>08:00</td>
+                    <td>Biblioteca</td>
+                    <td>38 dB</td>
+                    <td><span class="status-verde">🟢 Tranquilo</span></td>
+                </tr>
+
+                <tr>
+                    <td>09:30</td>
+                    <td>Sala de aula</td>
+                    <td>52 dB</td>
+                    <td><span class="status-amarelo">🟡 Atenção</span></td>
+                </tr>
+
+                <tr>
+                    <td>10:15</td>
+                    <td>Corredor</td>
+                    <td>61 dB</td>
+                    <td><span class="status-amarelo">🟡 Atenção</span></td>
+                </tr>
+
+                <tr>
+                    <td>12:15</td>
+                    <td>Refeitório</td>
+                    <td>76 dB</td>
+                    <td><span class="status-vermelho">🔴 Elevado</span></td>
+                </tr>
+
+                <tr>
+                    <td>13:00</td>
+                    <td>Pátio</td>
+                    <td>79 dB</td>
+                    <td><span class="status-vermelho">🔴 Elevado</span></td>
+                </tr>
+
+                <tr>
+                    <td>15:30</td>
+                    <td>Quadra</td>
+                    <td>84 dB</td>
+                    <td><span class="status-vermelho">🔴 Elevado</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
 
     <section class="acessibilidade">
 
