@@ -110,9 +110,7 @@ header p{
 }
 
 
-/* =========================
-   AMBIENTES
-========================= */
+/* AMBIENTES */
 
 .ambientes{
     display:grid;
@@ -176,9 +174,7 @@ header p{
 }
 
 
-/* =========================
-   SEMÁFORO
-========================= */
+/* SEMÁFORO */
 
 .semaforo-area{
     background:linear-gradient(135deg,#0c213b,#164f73);
@@ -266,9 +262,7 @@ input[type="range"]{
 }
 
 
-/* =========================
-   BOTÕES
-========================= */
+/* BOTÕES */
 
 .botao{
     display:inline-block;
@@ -289,9 +283,7 @@ input[type="range"]{
 }
 
 
-/* =========================
-   GRÁFICOS
-========================= */
+/* GRÁFICOS */
 
 .graficos{
     display:grid;
@@ -324,9 +316,7 @@ input[type="range"]{
 }
 
 
-/* =========================
-   MAPA
-========================= */
+/* MAPA */
 
 .mapa{
     display:grid;
@@ -354,9 +344,7 @@ input[type="range"]{
 }
 
 
-/* =========================
-   PROTÓTIPO
-========================= */
+/* PROTÓTIPO */
 
 .prototipo{
     background:linear-gradient(135deg,#0f2747,#164f73);
@@ -391,9 +379,7 @@ input[type="range"]{
 }
 
 
-/* =========================
-   FORMULÁRIO
-========================= */
+/* FORMULÁRIO */
 
 .form-grid{
     display:grid;
@@ -428,9 +414,7 @@ textarea{
 }
 
 
-/* =========================
-   ANÁLISE
-========================= */
+/* ANÁLISE */
 
 .analise-grid{
     display:grid;
@@ -482,9 +466,49 @@ textarea{
 }
 
 
-/* =========================
-   ACESSIBILIDADE
-========================= */
+/* METODOLOGIA */
+
+.metodologia-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.metodologia-card{
+    background:#f8fafc;
+    border:1px solid #e1e8f0;
+    border-radius:14px;
+    padding:22px;
+}
+
+.metodologia-card h3{
+    color:#123c69;
+    margin-bottom:10px;
+}
+
+.metodologia-card .numero-metodo{
+    display:inline-flex;
+    width:35px;
+    height:35px;
+    align-items:center;
+    justify-content:center;
+    background:#123c69;
+    color:white;
+    border-radius:50%;
+    font-weight:bold;
+    margin-right:8px;
+}
+
+.limite{
+    background:#fff8df;
+    border-left:6px solid #e0a800;
+    padding:20px;
+    border-radius:10px;
+    margin-top:20px;
+}
+
+
+/* ACESSIBILIDADE */
 
 .acessibilidade,
 .recomendacoes{
@@ -508,9 +532,7 @@ textarea{
 }
 
 
-/* =========================
-   TABELA
-========================= */
+/* TABELA */
 
 .tabela-container{
     overflow-x:auto;
@@ -535,9 +557,7 @@ th{
 }
 
 
-/* =========================
-   MODAL
-========================= */
+/* MODAL */
 
 .modal{
     display:none;
@@ -575,9 +595,7 @@ th{
 }
 
 
-/* =========================
-   RODAPÉ
-========================= */
+/* RODAPÉ */
 
 footer{
     background:#123c69;
@@ -588,9 +606,7 @@ footer{
 }
 
 
-/* =========================
-   RESPONSIVO
-========================= */
+/* RESPONSIVO */
 
 @media(max-width:900px){
 
@@ -600,7 +616,8 @@ footer{
     .acessibilidade,
     .recomendacoes,
     .analise-grid,
-    .periodos{
+    .periodos,
+    .metodologia-grid{
         grid-template-columns:1fr 1fr;
     }
 
@@ -624,7 +641,8 @@ footer{
     .mapa,
     .form-grid,
     .analise-grid,
-    .periodos{
+    .periodos,
+    .metodologia-grid{
         grid-template-columns:1fr;
     }
 
@@ -656,9 +674,7 @@ footer{
 <main class="container">
 
 
-<!-- =========================
-     APRESENTAÇÃO
-========================= -->
+<!-- APRESENTAÇÃO -->
 
 <h2 class="section-title">
     📊 Painel de Monitoramento
@@ -697,9 +713,7 @@ footer{
 </div>
 
 
-<!-- =========================
-     RESUMO
-========================= -->
+<!-- RESUMO -->
 
 <div class="dashboard">
 
@@ -747,9 +761,7 @@ footer{
 </div>
 
 
-<!-- =========================
-     SEMÁFORO DIGITAL
-========================= -->
+<!-- SEMÁFORO DIGITAL -->
 
 <h2 class="section-title">
     🚦 Semáforo Sonoro Digital
@@ -827,9 +839,7 @@ footer{
 </div>
 
 
-<!-- =========================
-     AMBIENTES
-========================= -->
+<!-- AMBIENTES -->
 
 <h2 class="section-title">
     🏫 Ambientes monitorados
@@ -841,9 +851,7 @@ footer{
 ></div>
 
 
-<!-- =========================
-     GRÁFICOS
-========================= -->
+<!-- GRÁFICOS -->
 
 <h2 class="section-title">
     📈 Comparação dos níveis
@@ -880,9 +888,7 @@ footer{
 </div>
 
 
-<!-- =========================
-     MAPA
-========================= -->
+<!-- MAPA -->
 
 <h2 class="section-title">
     🗺️ Mapa dos ambientes
@@ -902,9 +908,7 @@ footer{
 </div>
 
 
-<!-- =========================
-     CIRKIT
-========================= -->
+<!-- PROTÓTIPO -->
 
 <h2 class="section-title">
     🔌 Protótipo eletrônico
@@ -917,12 +921,10 @@ footer{
     </h2>
 
     <p>
-
         O protótipo desenvolvido no Cirkit Designer
         utiliza Arduino Uno, sensor KY-037 e LEDs
         para representar diferentes níveis de
         intensidade sonora.
-
     </p>
 
     <p>
@@ -1019,9 +1021,172 @@ footer{
 </div>
 
 
-<!-- =========================
-     NOVA COLETA
-========================= -->
+<!-- METODOLOGIA -->
+
+<h2 class="section-title">
+    🧪 Metodologia de coleta
+</h2>
+
+
+<div class="info">
+
+    <p>
+
+        A metodologia do SONORA foi organizada para permitir
+        o registro sistemático das condições sonoras em
+        diferentes ambientes e momentos da rotina escolar.
+
+    </p>
+
+
+    <div class="metodologia-grid">
+
+
+        <div class="metodologia-card">
+
+            <h3>
+                <span class="numero-metodo">1</span>
+                Definição dos ambientes
+            </h3>
+
+            <p>
+
+                As observações podem ser realizadas em
+                biblioteca, sala de aula, corredor,
+                refeitório, pátio e quadra.
+
+            </p>
+
+        </div>
+
+
+        <div class="metodologia-card">
+
+            <h3>
+                <span class="numero-metodo">2</span>
+                Definição dos períodos
+            </h3>
+
+            <p>
+
+                Os registros podem ser organizados por
+                manhã, intervalo, almoço e tarde,
+                permitindo comparar diferentes momentos
+                da rotina escolar.
+
+            </p>
+
+        </div>
+
+
+        <div class="metodologia-card">
+
+            <h3>
+                <span class="numero-metodo">3</span>
+                Registro da atividade
+            </h3>
+
+            <p>
+
+                Além do valor observado, registra-se
+                a atividade realizada no momento da coleta,
+                como aula, alimentação, circulação,
+                intervalo ou educação física.
+
+            </p>
+
+        </div>
+
+
+        <div class="metodologia-card">
+
+            <h3>
+                <span class="numero-metodo">4</span>
+                Observação do contexto
+            </h3>
+
+            <p>
+
+                O pesquisador pode registrar informações
+                como quantidade de pessoas, movimentação,
+                portas abertas, atividades coletivas e
+                possíveis fontes de ruído.
+
+            </p>
+
+        </div>
+
+
+        <div class="metodologia-card">
+
+            <h3>
+                <span class="numero-metodo">5</span>
+                Classificação visual
+            </h3>
+
+            <p>
+
+                O projeto utiliza três categorias visuais:
+                verde, amarelo e vermelho, facilitando
+                a interpretação dos registros.
+
+            </p>
+
+        </div>
+
+
+        <div class="metodologia-card">
+
+            <h3>
+                <span class="numero-metodo">6</span>
+                Análise dos dados
+            </h3>
+
+            <p>
+
+                Os registros podem ser comparados por
+                ambiente, horário, atividade e período,
+                permitindo identificar padrões no
+                contexto escolar.
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="limite">
+
+        <strong>
+            ⚠️ Limitação técnica importante
+        </strong>
+
+        <p style="margin-top:8px">
+
+            O sensor KY-037 utilizado no protótipo fornece
+            uma leitura relativa da intensidade sonora.
+            Portanto, os valores apresentados nesta versão
+            não devem ser interpretados automaticamente
+            como decibéis (dB) reais.
+
+        </p>
+
+        <p>
+
+            Para realizar medições quantitativas em dB,
+            seria necessário utilizar equipamento adequado
+            e um procedimento de calibração/metodologia
+            apropriada.
+
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- COLETA -->
 
 <h2 class="section-title">
     📝 Registrar observação de campo
@@ -1222,9 +1387,7 @@ footer{
 </div>
 
 
-<!-- =========================
-     CENTRAL DE ANÁLISE
-========================= -->
+<!-- CENTRAL DE ANÁLISE -->
 
 <h2 class="section-title">
     🧠 Central de análise
@@ -1381,9 +1544,7 @@ footer{
 </div>
 
 
-<!-- =========================
-     HISTÓRICO
-========================= -->
+<!-- HISTÓRICO -->
 
 <h2 class="section-title">
     📚 Histórico de medições
@@ -1448,9 +1609,7 @@ footer{
 </div>
 
 
-<!-- =========================
-     ACESSIBILIDADE
-========================= -->
+<!-- ACESSIBILIDADE -->
 
 <h2 class="section-title">
     ♿ Acessibilidade e TEA
@@ -1533,9 +1692,7 @@ footer{
 </div>
 
 
-<!-- =========================
-     ESTRATÉGIAS
-========================= -->
+<!-- ESTRATÉGIAS -->
 
 <h2 class="section-title">
     💡 Estratégias de melhoria
@@ -1588,9 +1745,7 @@ footer{
 </div>
 
 
-<!-- =========================
-     BASE
-========================= -->
+<!-- BASE -->
 
 <h2 class="section-title">
     📚 Base do projeto
@@ -1621,9 +1776,7 @@ footer{
 </main>
 
 
-<!-- =========================
-     MODAL
-========================= -->
+<!-- MODAL -->
 
 <div
     id="modal"
@@ -1675,9 +1828,7 @@ footer{
 <script>
 
 
-/* =========================
-   DADOS DOS AMBIENTES
-========================= */
+/* DADOS */
 
 const ambientes = [
 
@@ -1732,9 +1883,7 @@ const ambientes = [
 ];
 
 
-/* =========================
-   CLASSIFICAÇÃO
-========================= */
+/* CLASSIFICAÇÃO */
 
 function classificar(valor){
 
@@ -1772,9 +1921,7 @@ function classificar(valor){
 }
 
 
-/* =========================
-   SEMÁFORO
-========================= */
+/* SEMÁFORO */
 
 function atualizarSemaforo(){
 
@@ -1859,9 +2006,7 @@ function atualizarSemaforo(){
 }
 
 
-/* =========================
-   AMBIENTES
-========================= */
+/* AMBIENTES */
 
 function mostrarAmbientes(){
 
@@ -1919,9 +2064,7 @@ function mostrarAmbientes(){
 }
 
 
-/* =========================
-   RESUMO
-========================= */
+/* RESUMO */
 
 function atualizarResumo(){
 
@@ -1970,9 +2113,7 @@ function atualizarResumo(){
 }
 
 
-/* =========================
-   GRÁFICO AMBIENTES
-========================= */
+/* GRÁFICO */
 
 function mostrarGraficoAmbientes(){
 
@@ -2046,9 +2187,7 @@ function mostrarGraficoAmbientes(){
 }
 
 
-/* =========================
-   MAPA
-========================= */
+/* MAPA */
 
 function mostrarMapa(){
 
@@ -2107,9 +2246,7 @@ function mostrarMapa(){
 }
 
 
-/* =========================
-   MODAL
-========================= */
+/* MODAL */
 
 function mostrarDetalhes(index){
 
@@ -2159,13 +2296,8 @@ function mostrarDetalhes(index){
 
         <hr style="margin:18px 0">
 
-        <h3>
-            🔎 Interpretação
-        </h3>
-
         <p>
-            Este valor é utilizado como referência
-            visual no projeto. Os valores iniciais
+            Os valores iniciais desta demonstração
             são simulados.
         </p>
 
@@ -2197,9 +2329,7 @@ function fecharDetalhes(event){
 }
 
 
-/* =========================
-   HISTÓRICO
-========================= */
+/* HISTÓRICO */
 
 function getHistorico(){
 
@@ -2242,9 +2372,7 @@ function salvarHistorico(historico){
 }
 
 
-/* =========================
-   REGISTRAR MEDIÇÃO
-========================= */
+/* REGISTRAR */
 
 function registrarMedicao(){
 
@@ -2391,9 +2519,34 @@ function registrarMedicao(){
 }
 
 
-/* =========================
-   MOSTRAR HISTÓRICO
-========================= */
+/* DATA */
+
+function formatarData(data){
+
+    if(!data)
+        return "—";
+
+
+    const partes =
+        data.split("-");
+
+
+    if(partes.length !== 3)
+        return data;
+
+
+    return (
+        partes[2] +
+        "/" +
+        partes[1] +
+        "/" +
+        partes[0]
+    );
+
+}
+
+
+/* HISTÓRICO */
 
 function mostrarHistorico(){
 
@@ -2493,38 +2646,7 @@ function mostrarHistorico(){
 }
 
 
-/* =========================
-   FORMATAR DATA
-========================= */
-
-function formatarData(data){
-
-    if(!data)
-        return "—";
-
-
-    const partes =
-        data.split("-");
-
-
-    if(partes.length !== 3)
-        return data;
-
-
-    return (
-        partes[2] +
-        "/" +
-        partes[1] +
-        "/" +
-        partes[0]
-    );
-
-}
-
-
-/* =========================
-   ANÁLISE
-========================= */
+/* ANÁLISE */
 
 function atualizarAnalise(){
 
@@ -2589,7 +2711,6 @@ function atualizarAnalise(){
         document.getElementById(
             "textoAnalise"
         ).innerHTML =
-
             "Registre algumas observações para que o sistema possa apresentar uma análise.";
 
         return;
@@ -2599,7 +2720,7 @@ function atualizarAnalise(){
 
     const valores =
         historico.map(
-            m => Number(m.valor)
+            m=>Number(m.valor)
         );
 
 
@@ -2715,9 +2836,7 @@ function atualizarAnalise(){
     `;
 
 
-    if(
-        media < 50
-    ){
+    if(media < 50){
 
         texto += `
 
@@ -2730,16 +2849,14 @@ function atualizarAnalise(){
 
     }
 
-    else if(
-        media < 70
-    ){
+    else if(media < 70){
 
         texto += `
 
             <p>
                 A média dos registros está na faixa
-                de atenção. Vale observar os horários,
-                atividades e fontes de ruído associados.
+                de atenção. Recomenda-se observar
+                horários, atividades e fontes de ruído.
             </p>
 
         `;
@@ -2753,8 +2870,8 @@ function atualizarAnalise(){
             <p>
                 A média dos registros está na faixa
                 elevada definida pelo projeto.
-                É importante investigar quais atividades,
-                locais e horários estão relacionados aos registros.
+                Recomenda-se investigar o contexto
+                dos registros.
             </p>
 
         `;
@@ -2773,8 +2890,8 @@ function atualizarAnalise(){
 
         <p>
             Os dados devem ser interpretados em conjunto
-            com observações do ambiente e das atividades
-            realizadas no momento da medição.
+            com as observações do ambiente e das atividades
+            realizadas no momento da coleta.
         </p>
 
     `;
@@ -2824,9 +2941,7 @@ function calcularPeriodo(id,dados){
 }
 
 
-/* =========================
-   GRÁFICO HISTÓRICO
-========================= */
+/* GRÁFICO HISTÓRICO */
 
 function mostrarGraficoHistorico(){
 
@@ -3037,9 +3152,7 @@ function mostrarGraficoHistorico(){
 }
 
 
-/* =========================
-   INICIALIZAÇÃO
-========================= */
+/* INICIALIZAÇÃO */
 
 function inicializar(){
 
@@ -3099,6 +3212,7 @@ function inicializar(){
         .slice(0,5);
 
 }
+
 
 inicializar();
 
