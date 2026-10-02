@@ -422,6 +422,82 @@
     font-size: 14px;
     line-height: 1.6;
 }
+        .mapa-section {
+    margin-top: 40px;
+    padding: 30px;
+    background: #0d2033;
+    border: 1px solid #1e405c;
+    border-radius: 20px;
+}
+
+.mapa-escola {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.local {
+    min-height: 150px;
+    padding: 22px;
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #132b40;
+    border: 1px solid #29475e;
+    transition: transform 0.2s ease;
+}
+
+.local:hover {
+    transform: translateY(-4px);
+}
+
+.icone-local {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.local strong {
+    font-size: 17px;
+    color: #ffffff;
+}
+
+.local span {
+    margin-top: 8px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #8fd3ff;
+}
+
+.local small {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #c7d5df;
+}
+
+.biblioteca {
+    border-top: 4px solid #4ade80;
+}
+
+.sala,
+.corredor {
+    border-top: 4px solid #facc15;
+}
+
+.refeitorio,
+.patio,
+.quadra {
+    border-top: 4px solid #ef4444;
+}
+
+@media (max-width: 800px) {
+    .mapa-escola {
+        grid-template-columns: 1fr;
+    }
+}
     </style>
 
 </head>
@@ -548,7 +624,60 @@
         para demonstrar o funcionamento do sistema. Futuramente, o SONORA
         poderá receber dados de medições realizadas no ambiente escolar.
     </p>
-</div>
+<section class="mapa-section">
+    <div class="titulo-secao">
+        <span>MAPA SONORO</span>
+        <h2>Mapa dos ambientes da escola</h2>
+        <p>Visualização dos níveis sonoros registrados em cada espaço.</p>
+    </div>
+
+    <div class="mapa-escola">
+
+        <div class="local biblioteca">
+            <div class="icone-local">📚</div>
+            <strong>Biblioteca</strong>
+            <span>38 dB</span>
+            <small>🟢 Tranquilo</small>
+        </div>
+
+        <div class="local sala">
+            <div class="icone-local">🏫</div>
+            <strong>Sala de aula</strong>
+            <span>52 dB</span>
+            <small>🟡 Atenção</small>
+        </div>
+
+        <div class="local corredor">
+            <div class="icone-local">🚶</div>
+            <strong>Corredor</strong>
+            <span>61 dB</span>
+            <small>🟡 Atenção</small>
+        </div>
+
+        <div class="local refeitorio">
+            <div class="icone-local">🍽️</div>
+            <strong>Refeitório</strong>
+            <span>76 dB</span>
+            <small>🔴 Elevado</small>
+        </div>
+
+        <div class="local patio">
+            <div class="icone-local">🌳</div>
+            <strong>Pátio</strong>
+            <span>79 dB</span>
+            <small>🔴 Elevado</small>
+        </div>
+
+        <div class="local quadra">
+            <div class="icone-local">⚽</div>
+            <strong>Quadra</strong>
+            <span>84 dB</span>
+            <small>🔴 Elevado</small>
+        </div>
+
+    </div>
+</section>
+        </div>
 <section class="grafico-section">
     <div class="titulo-secao">
         <span>ANÁLISE</span>
