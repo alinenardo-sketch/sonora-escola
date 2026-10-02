@@ -15,7 +15,7 @@
 }
 
 body{
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:Arial,Helvetica,sans-serif;
     background:#f4f7fb;
     color:#1f2937;
     line-height:1.6;
@@ -29,13 +29,12 @@ header{
 }
 
 header h1{
-    font-size:38px;
+    font-size:40px;
     margin-bottom:8px;
 }
 
 header p{
     font-size:17px;
-    opacity:.95;
 }
 
 .container{
@@ -50,10 +49,12 @@ header p{
     font-size:27px;
 }
 
-.info{
+.info,
+.formulario,
+.grafico-box{
     background:white;
     border-radius:15px;
-    padding:22px;
+    padding:25px;
     box-shadow:0 4px 15px rgba(0,0,0,.08);
     margin-bottom:25px;
 }
@@ -79,7 +80,6 @@ header p{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:18px;
-    margin-bottom:30px;
 }
 
 .card-resumo{
@@ -88,11 +88,6 @@ header p{
     padding:25px;
     text-align:center;
     box-shadow:0 4px 15px rgba(0,0,0,.08);
-}
-
-.card-resumo h3{
-    font-size:16px;
-    margin-bottom:10px;
 }
 
 .numero{
@@ -142,7 +137,6 @@ header p{
 
 .ambiente h3{
     color:#123c69;
-    margin-bottom:10px;
 }
 
 .db{
@@ -174,21 +168,136 @@ header p{
     color:#a40000;
 }
 
+
+/* =========================
+   SEMÁFORO DIGITAL
+========================= */
+
+.semaforo-area{
+    background:linear-gradient(135deg,#0c213b,#164f73);
+    color:white;
+    border-radius:20px;
+    padding:35px;
+    box-shadow:0 8px 25px rgba(0,0,0,.18);
+    text-align:center;
+}
+
+.semaforo-area h2{
+    margin-bottom:10px;
+}
+
+.semaforo-area > p{
+    max-width:800px;
+    margin:0 auto 25px;
+}
+
+.semaforo-layout{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:50px;
+    flex-wrap:wrap;
+}
+
+.semaforo{
+    width:125px;
+    background:#111827;
+    border-radius:30px;
+    padding:20px 15px;
+    box-shadow:0 12px 30px rgba(0,0,0,.4);
+}
+
+.luz{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    margin:12px auto;
+    opacity:.18;
+    transition:.3s;
+    border:4px solid rgba(255,255,255,.15);
+}
+
+.luz.acesa{
+    opacity:1;
+    transform:scale(1.08);
+}
+
+.luz-verde{
+    background:#19d45c;
+    box-shadow:0 0 30px #19d45c;
+}
+
+.luz-amarela{
+    background:#ffd21f;
+    box-shadow:0 0 30px #ffd21f;
+}
+
+.luz-vermelha{
+    background:#ff3030;
+    box-shadow:0 0 30px #ff3030;
+}
+
+.leitura{
+    min-width:280px;
+    background:rgba(255,255,255,.08);
+    border-radius:18px;
+    padding:25px;
+}
+
+.leitura-valor{
+    font-size:55px;
+    font-weight:bold;
+}
+
+.leitura-status{
+    font-size:22px;
+    font-weight:bold;
+    margin:10px 0;
+}
+
+input[type="range"]{
+    width:100%;
+    margin:20px 0;
+    cursor:pointer;
+}
+
+.controle{
+    margin-top:15px;
+}
+
+.controle label{
+    display:block;
+    margin-bottom:5px;
+    font-weight:bold;
+}
+
+.botao{
+    display:inline-block;
+    background:#ffd166;
+    color:#17202a;
+    text-decoration:none;
+    font-weight:bold;
+    padding:13px 20px;
+    border-radius:10px;
+    border:none;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.botao:hover{
+    transform:translateY(-2px);
+    background:#ffdf8a;
+}
+
+
+/* =========================
+   GRÁFICOS
+========================= */
+
 .graficos{
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:25px;
-}
-
-.grafico-box{
-    background:white;
-    padding:25px;
-    border-radius:15px;
-    box-shadow:0 4px 15px rgba(0,0,0,.08);
-}
-
-.barras{
-    margin-top:20px;
 }
 
 .barra-item{
@@ -219,7 +328,6 @@ header p{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:15px;
-    margin-top:20px;
 }
 
 .local{
@@ -239,15 +347,18 @@ header p{
 
 .local .icone{
     font-size:35px;
-    margin-bottom:8px;
 }
+
+
+/* =========================
+   PROTÓTIPO
+========================= */
 
 .prototipo{
     background:linear-gradient(135deg,#0f2747,#164f73);
     color:white;
     border-radius:18px;
     padding:30px;
-    margin-top:25px;
     box-shadow:0 8px 25px rgba(0,0,0,.15);
 }
 
@@ -279,35 +390,10 @@ header p{
     margin-bottom:8px;
 }
 
-.botao{
-    display:inline-block;
-    background:#ffd166;
-    color:#17202a;
-    text-decoration:none;
-    font-weight:bold;
-    padding:13px 20px;
-    border-radius:10px;
-    transition:.2s;
-    border:none;
-    cursor:pointer;
-}
 
-.botao:hover{
-    transform:translateY(-2px);
-    background:#ffdf8a;
-}
-
-.botao-secundario{
-    background:#e8f2f8;
-    color:#123c69;
-}
-
-.formulario{
-    background:white;
-    border-radius:15px;
-    padding:25px;
-    box-shadow:0 4px 15px rgba(0,0,0,.08);
-}
+/* =========================
+   FORMULÁRIO
+========================= */
 
 .form-grid{
     display:grid;
@@ -321,7 +407,8 @@ label{
     margin-bottom:6px;
 }
 
-input, select{
+input,
+select{
     width:100%;
     padding:12px;
     border:1px solid #ccd6e0;
@@ -329,9 +416,36 @@ input, select{
     font-size:15px;
 }
 
-.formulario button{
-    margin-top:18px;
+
+/* =========================
+   ACESSIBILIDADE
+========================= */
+
+.acessibilidade,
+.recomendacoes{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
 }
+
+.acess-card,
+.recomendacao{
+    background:white;
+    border-radius:15px;
+    padding:22px;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+
+.acess-card h3,
+.recomendacao h3{
+    color:#123c69;
+    margin-bottom:10px;
+}
+
+
+/* =========================
+   TABELA
+========================= */
 
 .tabela-container{
     overflow-x:auto;
@@ -343,7 +457,8 @@ table{
     background:white;
 }
 
-th,td{
+th,
+td{
     padding:12px;
     border-bottom:1px solid #e5e7eb;
     text-align:left;
@@ -354,49 +469,10 @@ th{
     color:white;
 }
 
-.acessibilidade{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
 
-.acess-card{
-    background:white;
-    border-radius:15px;
-    padding:22px;
-    box-shadow:0 4px 15px rgba(0,0,0,.08);
-}
-
-.acess-card h3{
-    color:#123c69;
-    margin-bottom:10px;
-}
-
-.recomendacoes{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
-
-.recomendacao{
-    background:white;
-    border-radius:15px;
-    padding:22px;
-    box-shadow:0 4px 15px rgba(0,0,0,.08);
-}
-
-.recomendacao h3{
-    margin-bottom:10px;
-    color:#123c69;
-}
-
-footer{
-    background:#123c69;
-    color:white;
-    text-align:center;
-    padding:30px 20px;
-    margin-top:50px;
-}
+/* =========================
+   MODAL
+========================= */
 
 .modal{
     display:none;
@@ -427,17 +503,29 @@ footer{
     top:12px;
     font-size:30px;
     cursor:pointer;
-    color:#555;
 }
 
 .modal-content h2{
     color:#123c69;
-    margin-bottom:15px;
 }
 
-canvas{
-    max-width:100%;
+
+/* =========================
+   RODAPÉ
+========================= */
+
+footer{
+    background:#123c69;
+    color:white;
+    text-align:center;
+    padding:30px 20px;
+    margin-top:50px;
 }
+
+
+/* =========================
+   RESPONSIVO
+========================= */
 
 @media(max-width:900px){
 
@@ -458,7 +546,7 @@ canvas{
 @media(max-width:600px){
 
     header h1{
-        font-size:29px;
+        font-size:30px;
     }
 
     .dashboard,
@@ -475,6 +563,10 @@ canvas{
         grid-template-columns:1fr 1fr;
     }
 
+    .semaforo-layout{
+        gap:25px;
+    }
+
 }
 
 </style>
@@ -482,430 +574,395 @@ canvas{
 
 <body>
 
+
+<!-- =========================
+     CABEÇALHO
+========================= -->
+
 <header>
 
     <h1>🔊 SONORA</h1>
 
     <p>
-        Sistema de Monitoramento Sonoro Escolar e Acessibilidade Sensorial
+        Sistema de Monitoramento Sonoro Escolar
+        e Acessibilidade Sensorial
     </p>
 
 </header>
 
+
 <main class="container">
 
-    <!-- APRESENTAÇÃO -->
 
-    <h2 class="section-title">📊 Painel de Monitoramento</h2>
+<!-- =========================
+     APRESENTAÇÃO
+========================= -->
 
-    <div class="info">
+<h2 class="section-title">
+    📊 Painel de Monitoramento
+</h2>
 
-        <h3>Sobre o projeto</h3>
+<div class="info">
 
-        <p>
-            O SONORA é uma proposta tecnológica para observar os níveis de
-            ruído em diferentes ambientes da escola e transformar essas
-            informações em dados visuais de fácil compreensão.
-        </p>
+    <h3>Sobre o projeto</h3>
 
-        <p>
-            O projeto relaciona tecnologia, Física, programação,
-            acessibilidade e inclusão, permitindo identificar ambientes
-            que apresentam maior intensidade sonora e pensar em estratégias
-            para melhorar o conforto acústico escolar.
-        </p>
+    <p>
+        O SONORA é uma proposta tecnológica para observar
+        os níveis de ruído em diferentes ambientes da escola
+        e transformar essas informações em dados visuais
+        de fácil compreensão.
+    </p>
 
-    </div>
+    <p>
+        O projeto integra tecnologia, Física, programação,
+        acessibilidade e inclusão.
+    </p>
 
-    <div class="disclaimer">
+</div>
 
-        <strong>⚠️ Importante:</strong>
 
-        Os valores apresentados inicialmente no painel são
-        <strong>dados simulados</strong>, utilizados para demonstrar
-        o funcionamento da plataforma.
+<div class="disclaimer">
 
-        O sensor KY-037 utilizado no protótipo eletrônico fornece uma
-        leitura relativa da intensidade sonora. Ele não deve ser tratado,
-        sem calibração adequada, como um medidor profissional de decibéis.
+    <strong>⚠️ Atenção:</strong>
 
-    </div>
+    Os valores apresentados inicialmente são
+    <strong>dados simulados</strong> para demonstração.
 
+    O sensor KY-037 fornece uma leitura relativa da
+    intensidade sonora. Sem calibração adequada,
+    ele não deve ser considerado um medidor profissional
+    de decibéis.
 
-    <!-- RESUMO -->
+</div>
 
-    <div class="dashboard">
 
-        <div class="card-resumo">
+<!-- =========================
+     RESUMO
+========================= -->
 
-            <h3>🟢 Ambientes tranquilos</h3>
+<div class="dashboard">
 
-            <div id="tranquilos" class="numero verde">
-                0
-            </div>
+    <div class="card-resumo">
 
-        </div>
+        <h3>🟢 Ambientes tranquilos</h3>
 
-        <div class="card-resumo">
-
-            <h3>🟡 Em atenção</h3>
-
-            <div id="atencao" class="numero amarelo">
-                0
-            </div>
-
-        </div>
-
-        <div class="card-resumo">
-
-            <h3>🔴 Níveis elevados</h3>
-
-            <div id="elevados" class="numero vermelho">
-                0
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- AMBIENTES -->
-
-    <h2 class="section-title">
-        🏫 Ambientes monitorados
-    </h2>
-
-    <div id="ambientes" class="ambientes"></div>
-
-
-    <!-- GRÁFICO -->
-
-    <h2 class="section-title">
-        📈 Comparação dos níveis sonoros
-    </h2>
-
-    <div class="graficos">
-
-        <div class="grafico-box">
-
-            <h3>Nível estimado por ambiente</h3>
-
-            <div id="graficoAmbientes" class="barras"></div>
-
-        </div>
-
-        <div class="grafico-box">
-
-            <h3>Histórico das medições</h3>
-
-            <canvas id="graficoHistorico" height="250"></canvas>
-
-        </div>
-
-    </div>
-
-
-    <!-- MAPA -->
-
-    <h2 class="section-title">
-        🗺️ Mapa dos ambientes
-    </h2>
-
-    <div class="info">
-
-        <p>
-            Clique em um ambiente para visualizar informações
-            sobre seu nível sonoro e possíveis recomendações.
-        </p>
-
-        <div id="mapa" class="mapa"></div>
-
-    </div>
-
-
-    <!-- PROTÓTIPO CIRKIT -->
-
-    <h2 class="section-title">
-        🔌 Protótipo eletrônico
-    </h2>
-
-    <div class="prototipo">
-
-        <h2>
-            🚦 Semáforo Sonoro — Arduino + KY-037
-        </h2>
-
-        <p>
-            O protótipo eletrônico desenvolvido no
-            <strong>Cirkit Designer</strong> utiliza um Arduino Uno,
-            um sensor de som KY-037 e três LEDs para representar
-            diferentes níveis de intensidade sonora.
-        </p>
-
-        <p>
-            A lógica utilizada é simples:
-        </p>
-
-        <p>
-            🟢 <strong>Verde:</strong> som baixo<br>
-            🟡 <strong>Amarelo:</strong> som intermediário<br>
-            🔴 <strong>Vermelho:</strong> som elevado
-        </p>
-
-        <div class="componentes">
-
-            <div class="componente">
-
-                <div class="icone">🔧</div>
-
-                <strong>Arduino Uno</strong>
-
-                <p>
-                    Unidade de controle
-                </p>
-
-            </div>
-
-            <div class="componente">
-
-                <div class="icone">🎤</div>
-
-                <strong>KY-037</strong>
-
-                <p>
-                    Sensor de som
-                </p>
-
-            </div>
-
-            <div class="componente">
-
-                <div class="icone">🟢</div>
-
-                <strong>LED Verde</strong>
-
-                <p>
-                    Nível baixo
-                </p>
-
-            </div>
-
-            <div class="componente">
-
-                <div class="icone">🚦</div>
-
-                <strong>Semáforo</strong>
-
-                <p>
-                    Classificação visual
-                </p>
-
-            </div>
-
-        </div>
-
-        <p>
-            Esse circuito representa a etapa física/eletrônica
-            do projeto. O SONORA utiliza essa lógica como base
-            para organizar os dados em um painel digital.
-        </p>
-
-        <a
-            class="botao"
-            href="https://app.cirkitdesigner.com/project/ab8cd77e-b8d6-488c-9568-76ab59330e8c"
-            target="_blank"
-            rel="noopener noreferrer"
+        <div
+            id="tranquilos"
+            class="numero verde"
         >
-            🔗 Abrir protótipo no Cirkit Designer
-        </a>
+            0
+        </div>
 
     </div>
 
 
-    <!-- FORMULÁRIO -->
+    <div class="card-resumo">
 
-    <h2 class="section-title">
-        📝 Registrar uma medição
+        <h3>🟡 Em atenção</h3>
+
+        <div
+            id="atencao"
+            class="numero amarelo"
+        >
+            0
+        </div>
+
+    </div>
+
+
+    <div class="card-resumo">
+
+        <h3>🔴 Níveis elevados</h3>
+
+        <div
+            id="elevados"
+            class="numero vermelho"
+        >
+            0
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     SEMÁFORO DIGITAL
+========================= -->
+
+<h2 class="section-title">
+    🚦 Semáforo Sonoro Digital
+</h2>
+
+
+<div class="semaforo-area">
+
+    <h2>
+        Simulação do sistema SONORA
     </h2>
 
-    <div class="formulario">
+    <p>
+        Mova o controle para simular diferentes
+        níveis de intensidade sonora e observe
+        o funcionamento do semáforo.
+    </p>
 
-        <p>
-            Registre uma medição manual para criar um histórico
-            de observações do ambiente escolar.
-        </p>
 
-        <div class="form-grid">
+    <div class="semaforo-layout">
+
+
+        <!-- SEMÁFORO -->
+
+        <div class="semaforo">
+
+            <div
+                id="luzVermelha"
+                class="luz luz-vermelha"
+            ></div>
+
+            <div
+                id="luzAmarela"
+                class="luz luz-amarela"
+            ></div>
+
+            <div
+                id="luzVerde"
+                class="luz luz-verde"
+            ></div>
+
+        </div>
+
+
+        <!-- LEITURA -->
+
+        <div class="leitura">
 
             <div>
-
-                <label for="localMedicao">
-                    Ambiente
-                </label>
-
-                <select id="localMedicao">
-
-                    <option value="Biblioteca">
-                        Biblioteca
-                    </option>
-
-                    <option value="Sala de aula">
-                        Sala de aula
-                    </option>
-
-                    <option value="Corredor">
-                        Corredor
-                    </option>
-
-                    <option value="Refeitório">
-                        Refeitório
-                    </option>
-
-                    <option value="Pátio">
-                        Pátio
-                    </option>
-
-                    <option value="Quadra">
-                        Quadra
-                    </option>
-
-                </select>
-
+                Nível simulado
             </div>
 
+            <div
+                id="valorSemaforo"
+                class="leitura-valor"
+            >
+                50
+            </div>
 
-            <div>
+            <div
+                id="statusSemaforo"
+                class="leitura-status amarelo"
+            >
+                ATENÇÃO
+            </div>
 
-                <label for="valorMedicao">
-                    Valor da medição
+            <div class="controle">
+
+                <label for="controleSom">
+                    Ajuste o nível:
                 </label>
 
                 <input
-                    type="number"
-                    id="valorMedicao"
+                    type="range"
+                    id="controleSom"
                     min="0"
-                    max="120"
-                    placeholder="Ex.: 65"
+                    max="100"
+                    value="50"
+                    oninput="atualizarSemaforo()"
                 >
 
             </div>
 
         </div>
 
-        <button
-            class="botao"
-            onclick="registrarMedicao()"
-        >
-            ➕ Registrar medição
-        </button>
+    </div>
+
+
+    <p style="margin-top:25px">
+
+        💡 A lógica do semáforo digital reproduz
+        conceitualmente a lógica utilizada no
+        protótipo Arduino + KY-037.
+
+    </p>
+
+</div>
+
+
+<!-- =========================
+     AMBIENTES
+========================= -->
+
+<h2 class="section-title">
+    🏫 Ambientes monitorados
+</h2>
+
+<div
+    id="ambientes"
+    class="ambientes"
+></div>
+
+
+<!-- =========================
+     GRÁFICOS
+========================= -->
+
+<h2 class="section-title">
+    📈 Comparação dos níveis sonoros
+</h2>
+
+<div class="graficos">
+
+    <div class="grafico-box">
+
+        <h3>
+            Nível por ambiente
+        </h3>
+
+        <div
+            id="graficoAmbientes"
+        ></div>
 
     </div>
 
 
-    <!-- HISTÓRICO -->
+    <div class="grafico-box">
 
-    <h2 class="section-title">
-        📚 Histórico de medições
+        <h3>
+            Histórico das medições
+        </h3>
+
+        <canvas
+            id="graficoHistorico"
+            height="250"
+        ></canvas>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     MAPA
+========================= -->
+
+<h2 class="section-title">
+    🗺️ Mapa dos ambientes
+</h2>
+
+<div class="info">
+
+    <p>
+        Clique em um ambiente para consultar
+        seus dados.
+    </p>
+
+    <div
+        id="mapa"
+        class="mapa"
+    ></div>
+
+</div>
+
+
+<!-- =========================
+     PROTÓTIPO CIRKIT
+========================= -->
+
+<h2 class="section-title">
+    🔌 Protótipo eletrônico
+</h2>
+
+<div class="prototipo">
+
+    <h2>
+        🚦 Semáforo Sonoro — Arduino + KY-037
     </h2>
 
-    <div class="info tabela-container">
+    <p>
 
-        <p style="margin-bottom:15px">
+        O protótipo eletrônico desenvolvido no
+        Cirkit Designer utiliza Arduino Uno,
+        sensor KY-037 e LEDs para representar
+        diferentes níveis de intensidade sonora.
 
-            Medições registradas neste navegador:
+    </p>
 
-            <strong id="quantidadeHistorico">
-                0
+
+    <p>
+
+        🟢 Verde — som baixo<br>
+        🟡 Amarelo — som intermediário<br>
+        🔴 Vermelho — som elevado
+
+    </p>
+
+
+    <div class="componentes">
+
+
+        <div class="componente">
+
+            <div class="icone">
+                🔧
+            </div>
+
+            <strong>
+                Arduino Uno
             </strong>
 
-        </p>
-
-        <table>
-
-            <thead>
-
-                <tr>
-
-                    <th>Data</th>
-
-                    <th>Horário</th>
-
-                    <th>Ambiente</th>
-
-                    <th>Valor</th>
-
-                    <th>Classificação</th>
-
-                </tr>
-
-            </thead>
-
-            <tbody id="historico">
-
-            </tbody>
-
-        </table>
-
-    </div>
-
-
-    <!-- ACESSIBILIDADE -->
-
-    <h2 class="section-title">
-        ♿ Acessibilidade e TEA
-    </h2>
-
-    <div class="info">
-
-        <p>
-
-            Algumas pessoas com Transtorno do Espectro Autista (TEA)
-            podem apresentar maior sensibilidade a estímulos sonoros.
-            Essa característica varia de pessoa para pessoa.
-
-        </p>
-
-        <p>
-
-            Por isso, o monitoramento do ambiente pode contribuir
-            para identificar situações de desconforto e apoiar
-            estratégias de organização dos espaços escolares.
-
-        </p>
-
-    </div>
-
-    <div class="acessibilidade">
-
-        <div class="acess-card">
-
-            <h3>🔊 Ambiente sonoro</h3>
-
             <p>
-                Identificar locais e horários em que ocorre maior
-                intensidade sonora.
+                Unidade de controle
             </p>
 
         </div>
 
-        <div class="acess-card">
 
-            <h3>🧩 Inclusão</h3>
+        <div class="componente">
+
+            <div class="icone">
+                🎤
+            </div>
+
+            <strong>
+                KY-037
+            </strong>
 
             <p>
-                Considerar diferentes necessidades sensoriais
-                presentes no ambiente escolar.
+                Sensor de som
             </p>
 
         </div>
 
-        <div class="acess-card">
 
-            <h3>📊 Dados</h3>
+        <div class="componente">
+
+            <div class="icone">
+                🟢
+            </div>
+
+            <strong>
+                LEDs
+            </strong>
 
             <p>
-                Transformar observações em informações visuais
-                para apoiar decisões pedagógicas.
+                Indicadores visuais
+            </p>
+
+        </div>
+
+
+        <div class="componente">
+
+            <div class="icone">
+                🚦
+            </div>
+
+            <strong>
+                Semáforo
+            </strong>
+
+            <p>
+                Classificação sonora
             </p>
 
         </div>
@@ -913,82 +970,343 @@ canvas{
     </div>
 
 
-    <!-- RECOMENDAÇÕES -->
+    <a
+        class="botao"
+        href="https://app.cirkitdesigner.com/project/ab8cd77e-b8d6-488c-9568-76ab59330e8c"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        🔗 Abrir projeto no Cirkit Designer
+    </a>
 
-    <h2 class="section-title">
-        💡 Estratégias de melhoria
-    </h2>
+</div>
 
-    <div class="recomendacoes">
 
-        <div class="recomendacao">
+<!-- =========================
+     REGISTRO
+========================= -->
 
-            <h3>🔇 Redução de ruído</h3>
+<h2 class="section-title">
+    📝 Registrar uma medição
+</h2>
 
-            <p>
-                Avaliar organização das atividades, circulação
-                de pessoas e fontes de ruído.
-            </p>
+<div class="formulario">
+
+    <p>
+        Registre uma observação para criar
+        um histórico local de medições.
+    </p>
+
+
+    <div class="form-grid">
+
+
+        <div>
+
+            <label for="localMedicao">
+                Ambiente
+            </label>
+
+            <select id="localMedicao">
+
+                <option>
+                    Biblioteca
+                </option>
+
+                <option>
+                    Sala de aula
+                </option>
+
+                <option>
+                    Corredor
+                </option>
+
+                <option>
+                    Refeitório
+                </option>
+
+                <option>
+                    Pátio
+                </option>
+
+                <option>
+                    Quadra
+                </option>
+
+            </select>
 
         </div>
 
-        <div class="recomendacao">
 
-            <h3>🏫 Organização do espaço</h3>
+        <div>
 
-            <p>
-                Identificar ambientes que podem precisar de
-                estratégias específicas de organização.
-            </p>
+            <label for="valorMedicao">
+                Valor da medição
+            </label>
 
-        </div>
-
-        <div class="recomendacao">
-
-            <h3>🧠 Conforto sensorial</h3>
-
-            <p>
-                Considerar alternativas para estudantes que
-                apresentam maior sensibilidade aos estímulos sonoros.
-            </p>
+            <input
+                type="number"
+                id="valorMedicao"
+                min="0"
+                max="120"
+                placeholder="Ex.: 65"
+            >
 
         </div>
 
     </div>
 
 
-    <!-- REFERÊNCIAS -->
+    <button
+        class="botao"
+        onclick="registrarMedicao()"
+    >
+        ➕ Registrar medição
+    </button>
 
-    <h2 class="section-title">
-        📚 Base científica do projeto
-    </h2>
+</div>
 
-    <div class="info">
+
+<!-- =========================
+     HISTÓRICO
+========================= -->
+
+<h2 class="section-title">
+    📚 Histórico de medições
+</h2>
+
+<div class="info tabela-container">
+
+    <p>
+
+        Medições registradas neste navegador:
+
+        <strong id="quantidadeHistorico">
+            0
+        </strong>
+
+    </p>
+
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>
+                    Data
+                </th>
+
+                <th>
+                    Horário
+                </th>
+
+                <th>
+                    Ambiente
+                </th>
+
+                <th>
+                    Valor
+                </th>
+
+                <th>
+                    Classificação
+                </th>
+
+            </tr>
+
+        </thead>
+
+
+        <tbody id="historico">
+
+        </tbody>
+
+    </table>
+
+</div>
+
+
+<!-- =========================
+     ACESSIBILIDADE
+========================= -->
+
+<h2 class="section-title">
+    ♿ Acessibilidade e TEA
+</h2>
+
+<div class="info">
+
+    <p>
+
+        Algumas pessoas com Transtorno do Espectro
+        Autista (TEA) podem apresentar maior
+        sensibilidade a estímulos sonoros.
+
+    </p>
+
+    <p>
+
+        Essa característica varia de pessoa para pessoa.
+        Por isso, o projeto não utiliza o nível sonoro
+        como diagnóstico, mas como uma ferramenta de
+        observação e reflexão sobre o ambiente escolar.
+
+    </p>
+
+</div>
+
+
+<div class="acessibilidade">
+
+
+    <div class="acess-card">
+
+        <h3>
+            🔊 Ambiente sonoro
+        </h3>
 
         <p>
-            O projeto utiliza conceitos de Física relacionados
-            às ondas sonoras, intensidade sonora, propagação do som
-            e percepção auditiva.
-        </p>
 
-        <p>
-            Também integra conceitos de programação, Internet,
-            visualização de dados, tecnologia educacional,
-            acessibilidade e inclusão.
-        </p>
+            Identificar locais e horários
+            com maior intensidade sonora.
 
-        <p>
-            A classificação apresentada pelo semáforo deve ser
-            entendida como uma estratégia visual do projeto e não
-            como diagnóstico médico ou avaliação clínica.
         </p>
 
     </div>
+
+
+    <div class="acess-card">
+
+        <h3>
+            🧩 Inclusão
+        </h3>
+
+        <p>
+
+            Considerar diferentes necessidades
+            sensoriais dos estudantes.
+
+        </p>
+
+    </div>
+
+
+    <div class="acess-card">
+
+        <h3>
+            📊 Dados
+        </h3>
+
+        <p>
+
+            Transformar observações em
+            informações visuais.
+
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     RECOMENDAÇÕES
+========================= -->
+
+<h2 class="section-title">
+    💡 Estratégias
+</h2>
+
+<div class="recomendacoes">
+
+
+    <div class="recomendacao">
+
+        <h3>
+            🔇 Redução de ruído
+        </h3>
+
+        <p>
+
+            Identificar fontes de ruído e
+            horários de maior intensidade.
+
+        </p>
+
+    </div>
+
+
+    <div class="recomendacao">
+
+        <h3>
+            🏫 Organização
+        </h3>
+
+        <p>
+
+            Avaliar a organização das atividades
+            e dos espaços escolares.
+
+        </p>
+
+    </div>
+
+
+    <div class="recomendacao">
+
+        <h3>
+            🧠 Conforto sensorial
+        </h3>
+
+        <p>
+
+            Considerar estratégias para estudantes
+            que apresentam maior sensibilidade sonora.
+
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     REFERÊNCIAS
+========================= -->
+
+<h2 class="section-title">
+    📚 Base do projeto
+</h2>
+
+<div class="info">
+
+    <p>
+
+        O projeto integra conceitos de Física,
+        programação, tecnologia educacional,
+        visualização de dados e acessibilidade.
+
+    </p>
+
+    <p>
+
+        A classificação do semáforo é uma estratégia
+        visual criada para o projeto e não representa
+        diagnóstico médico ou avaliação clínica.
+
+    </p>
+
+</div>
+
 
 </main>
 
 
-<!-- MODAL -->
+<!-- =========================
+     MODAL
+========================= -->
 
 <div
     id="modal"
@@ -1019,12 +1337,19 @@ canvas{
 </div>
 
 
+<!-- =========================
+     RODAPÉ
+========================= -->
+
 <footer>
 
-    <strong>SONORA</strong>
+    <strong>
+        SONORA
+    </strong>
 
     <p>
-        Sistema de Monitoramento Sonoro Escolar e Acessibilidade Sensorial
+        Sistema de Monitoramento Sonoro Escolar
+        e Acessibilidade Sensorial
     </p>
 
     <p>
@@ -1036,9 +1361,10 @@ canvas{
 
 <script>
 
-/* ================================
-   DADOS INICIAIS
-================================ */
+
+/* =========================
+   AMBIENTES
+========================= */
 
 const ambientes = [
 
@@ -1063,7 +1389,7 @@ const ambientes = [
         valor:61,
         icone:"🚶",
         descricao:
-        "Área de circulação dos estudantes durante os períodos escolares."
+        "Área de circulação dos estudantes."
     },
 
     {
@@ -1079,7 +1405,7 @@ const ambientes = [
         valor:79,
         icone:"🌳",
         descricao:
-        "Área de convivência e circulação dos estudantes."
+        "Área de convivência dos estudantes."
     },
 
     {
@@ -1087,15 +1413,15 @@ const ambientes = [
         valor:84,
         icone:"🏀",
         descricao:
-        "Espaço destinado às atividades esportivas e recreativas."
+        "Espaço destinado às atividades esportivas."
     }
 
 ];
 
 
-/* ================================
+/* =========================
    CLASSIFICAÇÃO
-================================ */
+========================= */
 
 function classificar(valor){
 
@@ -1133,58 +1459,167 @@ function classificar(valor){
 }
 
 
-/* ================================
-   MOSTRAR AMBIENTES
-================================ */
+/* =========================
+   SEMÁFORO DIGITAL
+========================= */
 
-function mostrarAmbientes(){
+function atualizarSemaforo(){
 
-    const container =
-        document.getElementById("ambientes");
+    const controle =
+        document.getElementById(
+            "controleSom"
+        );
 
-    container.innerHTML = "";
+    const valor =
+        Number(controle.value);
 
-    ambientes.forEach((ambiente,index)=>{
 
-        const status =
-            classificar(ambiente.valor);
+    document.getElementById(
+        "valorSemaforo"
+    ).textContent = valor;
 
-        container.innerHTML += `
 
-            <div
-                class="ambiente ${status.card}"
-                onclick="mostrarDetalhes(${index})"
-            >
+    const luzVerde =
+        document.getElementById(
+            "luzVerde"
+        );
 
-                <h3>
-                    ${ambiente.icone}
-                    ${ambiente.nome}
-                </h3>
+    const luzAmarela =
+        document.getElementById(
+            "luzAmarela"
+        );
 
-                <div class="db">
-                    ${ambiente.valor}
-                </div>
+    const luzVermelha =
+        document.getElementById(
+            "luzVermelha"
+        );
 
-                <span class="status ${status.fundo}">
-                    ${status.nome}
-                </span>
+    const status =
+        document.getElementById(
+            "statusSemaforo"
+        );
 
-                <p style="margin-top:12px">
-                    Clique para ver detalhes
-                </p>
 
-            </div>
+    luzVerde.classList.remove(
+        "acesa"
+    );
 
-        `;
+    luzAmarela.classList.remove(
+        "acesa"
+    );
 
-    });
+    luzVermelha.classList.remove(
+        "acesa"
+    );
+
+
+    if(valor < 50){
+
+        luzVerde.classList.add(
+            "acesa"
+        );
+
+        status.textContent =
+            "NÍVEL BAIXO";
+
+        status.className =
+            "leitura-status verde";
+
+    }
+
+    else if(valor < 70){
+
+        luzAmarela.classList.add(
+            "acesa"
+        );
+
+        status.textContent =
+            "NÍVEL DE ATENÇÃO";
+
+        status.className =
+            "leitura-status amarelo";
+
+    }
+
+    else{
+
+        luzVermelha.classList.add(
+            "acesa"
+        );
+
+        status.textContent =
+            "NÍVEL ELEVADO";
+
+        status.className =
+            "leitura-status vermelho";
+
+    }
 
 }
 
 
-/* ================================
+/* =========================
+   AMBIENTES
+========================= */
+
+function mostrarAmbientes(){
+
+    const container =
+        document.getElementById(
+            "ambientes"
+        );
+
+    container.innerHTML = "";
+
+
+    ambientes.forEach(
+        (ambiente,index)=>{
+
+            const status =
+                classificar(
+                    ambiente.valor
+                );
+
+
+            container.innerHTML += `
+
+                <div
+                    class="ambiente ${status.card}"
+                    onclick="mostrarDetalhes(${index})"
+                >
+
+                    <h3>
+                        ${ambiente.icone}
+                        ${ambiente.nome}
+                    </h3>
+
+                    <div class="db">
+                        ${ambiente.valor}
+                    </div>
+
+                    <span
+                        class="status ${status.fundo}"
+                    >
+                        ${status.nome}
+                    </span>
+
+                    <p style="margin-top:12px">
+                        Clique para ver detalhes
+                    </p>
+
+                </div>
+
+            `;
+
+        }
+    );
+
+}
+
+
+/* =========================
    RESUMO
-================================ */
+========================= */
 
 function atualizarResumo(){
 
@@ -1192,10 +1627,12 @@ function atualizarResumo(){
     let atencao = 0;
     let elevados = 0;
 
+
     ambientes.forEach(a=>{
 
         const status =
             classificar(a.valor).nome;
+
 
         if(status === "Tranquilo")
             tranquilos++;
@@ -1208,33 +1645,58 @@ function atualizarResumo(){
 
     });
 
-    document.getElementById("tranquilos").textContent =
+
+    document.getElementById(
+        "tranquilos"
+    ).textContent =
         tranquilos;
 
-    document.getElementById("atencao").textContent =
+
+    document.getElementById(
+        "atencao"
+    ).textContent =
         atencao;
 
-    document.getElementById("elevados").textContent =
+
+    document.getElementById(
+        "elevados"
+    ).textContent =
         elevados;
 
 }
 
 
-/* ================================
-   GRÁFICO DE AMBIENTES
-================================ */
+/* =========================
+   GRÁFICO
+========================= */
 
 function mostrarGraficoAmbientes(){
 
     const container =
-        document.getElementById("graficoAmbientes");
+        document.getElementById(
+            "graficoAmbientes"
+        );
 
     container.innerHTML = "";
+
 
     ambientes.forEach(a=>{
 
         const status =
             classificar(a.valor);
+
+
+        let cor =
+            "#168a3a";
+
+
+        if(status.classe === "amarelo")
+            cor = "#e0a800";
+
+
+        if(status.classe === "vermelho")
+            cor = "#d62828";
+
 
         container.innerHTML += `
 
@@ -1257,13 +1719,8 @@ function mostrarGraficoAmbientes(){
                     <div
                         class="barra-preenchida"
                         style="
-                            width:${Math.min(a.valor,100)}%;
-                            background:
-                            ${status.classe === "verde"
-                            ? "#168a3a"
-                            : status.classe === "amarelo"
-                            ? "#e0a800"
-                            : "#d62828"};
+                        width:${Math.min(a.valor,100)}%;
+                        background:${cor};
                         "
                     ></div>
 
@@ -1278,63 +1735,69 @@ function mostrarGraficoAmbientes(){
 }
 
 
-/* ================================
+/* =========================
    MAPA
-================================ */
+========================= */
 
 function mostrarMapa(){
 
     const mapa =
-        document.getElementById("mapa");
+        document.getElementById(
+            "mapa"
+        );
 
     mapa.innerHTML = "";
 
-    ambientes.forEach((a,index)=>{
 
-        const status =
-            classificar(a.valor);
+    ambientes.forEach(
+        (a,index)=>{
 
-        mapa.innerHTML += `
+            const status =
+                classificar(a.valor);
 
-            <div
-                class="local"
-                onclick="mostrarDetalhes(${index})"
-            >
 
-                <div class="icone">
-                    ${a.icone}
-                </div>
-
-                <strong>
-                    ${a.nome}
-                </strong>
+            mapa.innerHTML += `
 
                 <div
-                    class="${status.classe}"
-                    style="
+                    class="local"
+                    onclick="mostrarDetalhes(${index})"
+                >
+
+                    <div class="icone">
+                        ${a.icone}
+                    </div>
+
+                    <strong>
+                        ${a.nome}
+                    </strong>
+
+                    <div
+                        class="${status.classe}"
+                        style="
                         font-weight:bold;
                         margin-top:5px;
-                    "
-                >
-                    ${a.valor}
+                        "
+                    >
+                        ${a.valor}
+                    </div>
+
+                    <small>
+                        ${status.nome}
+                    </small>
+
                 </div>
 
-                <small>
-                    ${status.nome}
-                </small>
+            `;
 
-            </div>
-
-        `;
-
-    });
+        }
+    );
 
 }
 
 
-/* ================================
-   DETALHES
-================================ */
+/* =========================
+   MODAL
+========================= */
 
 function mostrarDetalhes(index){
 
@@ -1342,20 +1805,36 @@ function mostrarDetalhes(index){
         ambientes[index];
 
     const status =
-        classificar(ambiente.valor);
+        classificar(
+            ambiente.valor
+        );
 
-    document.getElementById("modalTitulo").textContent =
-        ambiente.icone + " " + ambiente.nome;
 
-    document.getElementById("modalTexto").innerHTML = `
+    document.getElementById(
+        "modalTitulo"
+    ).textContent =
+        ambiente.icone +
+        " " +
+        ambiente.nome;
+
+
+    document.getElementById(
+        "modalTexto"
+    ).innerHTML = `
 
         <p>
-            <strong>Nível registrado:</strong>
+            <strong>
+                Nível registrado:
+            </strong>
+
             ${ambiente.valor}
         </p>
 
         <p>
-            <strong>Classificação:</strong>
+            <strong>
+                Classificação:
+            </strong>
+
             <span class="${status.classe}">
                 ${status.nome}
             </span>
@@ -1367,39 +1846,28 @@ function mostrarDetalhes(index){
 
         <hr style="margin:18px 0">
 
-        <h3>🔎 Interpretação</h3>
-
-        <p>
-
-            O nível apresentado é uma referência visual
-            utilizada pelo projeto SONORA. Os valores iniciais
-            são simulados e não representam uma medição
-            profissional em decibéis.
-
-        </p>
-
-        <h3 style="margin-top:15px">
-            💡 Possível estratégia
+        <h3>
+            🔎 Interpretação
         </h3>
 
         <p>
 
-            Observar as fontes de ruído presentes no ambiente,
-            os horários em que ocorrem e as atividades realizadas.
+            Este valor é utilizado como referência
+            visual no protótipo SONORA.
+            Os valores iniciais são simulados.
 
         </p>
 
     `;
 
-    document.getElementById("modal").style.display =
+
+    document.getElementById(
+        "modal"
+    ).style.display =
         "flex";
 
 }
 
-
-/* ================================
-   FECHAR MODAL
-================================ */
 
 function fecharDetalhes(event){
 
@@ -1408,7 +1876,9 @@ function fecharDetalhes(event){
         event.target.id === "modal"
     ){
 
-        document.getElementById("modal").style.display =
+        document.getElementById(
+            "modal"
+        ).style.display =
             "none";
 
     }
@@ -1416,23 +1886,31 @@ function fecharDetalhes(event){
 }
 
 
-/* ================================
+/* =========================
    HISTÓRICO
-================================ */
+========================= */
 
 function getHistorico(){
 
     const dados =
-        localStorage.getItem("sonoraHistorico");
+        localStorage.getItem(
+            "sonoraHistorico"
+        );
+
 
     if(!dados)
         return [];
 
+
     try{
 
-        return JSON.parse(dados);
+        return JSON.parse(
+            dados
+        );
 
-    }catch{
+    }
+
+    catch{
 
         return [];
 
@@ -1441,33 +1919,37 @@ function getHistorico(){
 }
 
 
-/* ================================
-   SALVAR HISTÓRICO
-================================ */
-
 function salvarHistorico(historico){
 
     localStorage.setItem(
         "sonoraHistorico",
-        JSON.stringify(historico)
+        JSON.stringify(
+            historico
+        )
     );
 
 }
 
 
-/* ================================
-   REGISTRAR MEDIÇÃO
-================================ */
+/* =========================
+   REGISTRAR
+========================= */
 
 function registrarMedicao(){
 
     const local =
-        document.getElementById("localMedicao").value;
+        document.getElementById(
+            "localMedicao"
+        ).value;
+
 
     const valor =
         Number(
-            document.getElementById("valorMedicao").value
+            document.getElementById(
+                "valorMedicao"
+            ).value
         );
+
 
     if(
         isNaN(valor) ||
@@ -1483,13 +1965,17 @@ function registrarMedicao(){
 
     }
 
+
     const agora =
         new Date();
+
 
     const medicao = {
 
         data:
-            agora.toLocaleDateString("pt-BR"),
+            agora.toLocaleDateString(
+                "pt-BR"
+            ),
 
         horario:
             agora.toLocaleTimeString(
@@ -1509,18 +1995,30 @@ function registrarMedicao(){
 
     };
 
+
     const historico =
         getHistorico();
 
-    historico.push(medicao);
 
-    salvarHistorico(historico);
+    historico.push(
+        medicao
+    );
 
-    document.getElementById("valorMedicao").value = "";
+
+    salvarHistorico(
+        historico
+    );
+
+
+    document.getElementById(
+        "valorMedicao"
+    ).value = "";
+
 
     mostrarHistorico();
 
     mostrarGraficoHistorico();
+
 
     alert(
         "Medição registrada com sucesso!"
@@ -1529,26 +2027,34 @@ function registrarMedicao(){
 }
 
 
-/* ================================
+/* =========================
    MOSTRAR HISTÓRICO
-================================ */
+========================= */
 
 function mostrarHistorico(){
 
     const historico =
         getHistorico();
 
+
     const tabela =
-        document.getElementById("historico");
+        document.getElementById(
+            "historico"
+        );
+
 
     tabela.innerHTML = "";
+
 
     document.getElementById(
         "quantidadeHistorico"
     ).textContent =
         historico.length;
 
-    if(historico.length === 0){
+
+    if(
+        historico.length === 0
+    ){
 
         tabela.innerHTML = `
 
@@ -1566,13 +2072,17 @@ function mostrarHistorico(){
 
     }
 
+
     historico
         .slice()
         .reverse()
         .forEach(m=>{
 
             const status =
-                classificar(m.valor);
+                classificar(
+                    m.valor
+                );
+
 
             tabela.innerHTML += `
 
@@ -1611,9 +2121,9 @@ function mostrarHistorico(){
 }
 
 
-/* ================================
-   GRÁFICO DO HISTÓRICO
-================================ */
+/* =========================
+   GRÁFICO HISTÓRICO
+========================= */
 
 function mostrarGraficoHistorico(){
 
@@ -1622,11 +2132,16 @@ function mostrarGraficoHistorico(){
             "graficoHistorico"
         );
 
+
     const ctx =
-        canvas.getContext("2d");
+        canvas.getContext(
+            "2d"
+        );
+
 
     const historico =
         getHistorico();
+
 
     ctx.clearRect(
         0,
@@ -1635,11 +2150,16 @@ function mostrarGraficoHistorico(){
         canvas.height
     );
 
-    if(historico.length === 0){
 
-        ctx.font = "16px Arial";
+    if(
+        historico.length === 0
+    ){
 
-        ctx.fillStyle = "#666";
+        ctx.font =
+            "16px Arial";
+
+        ctx.fillStyle =
+            "#666";
 
         ctx.fillText(
             "Registre medições para visualizar o histórico.",
@@ -1651,122 +2171,164 @@ function mostrarGraficoHistorico(){
 
     }
 
+
     const dados =
         historico.slice(-10);
+
 
     const largura =
         canvas.width;
 
+
     const altura =
         canvas.height;
 
+
     const margem = 35;
 
-    const max =
-        120;
+    const max = 120;
+
 
     ctx.strokeStyle =
         "#cbd5e1";
 
+
     ctx.beginPath();
+
 
     ctx.moveTo(
         margem,
         10
     );
 
+
     ctx.lineTo(
         margem,
         altura - margem
     );
+
 
     ctx.lineTo(
         largura - 10,
         altura - margem
     );
 
+
     ctx.stroke();
+
 
     ctx.strokeStyle =
         "#1976a3";
 
+
     ctx.lineWidth = 3;
+
 
     ctx.beginPath();
 
-    dados.forEach((d,i)=>{
 
-        const x =
-            margem +
-            (
-                (largura - margem - 20)
-                /
-                Math.max(dados.length - 1,1)
-            ) * i;
+    dados.forEach(
+        (d,i)=>{
 
-        const y =
-            altura -
-            margem -
-            (
-                d.valor / max
-            ) *
-            (
-                altura - margem - 20
-            );
+            const x =
+                margem +
+                (
+                    (largura - margem - 20)
+                    /
+                    Math.max(
+                        dados.length - 1,
+                        1
+                    )
+                ) * i;
 
-        if(i === 0)
-            ctx.moveTo(x,y);
 
-        else
-            ctx.lineTo(x,y);
+            const y =
+                altura -
+                margem -
+                (
+                    d.valor / max
+                ) *
+                (
+                    altura -
+                    margem -
+                    20
+                );
 
-    });
+
+            if(i === 0)
+                ctx.moveTo(
+                    x,
+                    y
+                );
+
+            else
+                ctx.lineTo(
+                    x,
+                    y
+                );
+
+        }
+    );
+
 
     ctx.stroke();
 
-    dados.forEach((d,i)=>{
 
-        const x =
-            margem +
-            (
-                (largura - margem - 20)
-                /
-                Math.max(dados.length - 1,1)
-            ) * i;
+    dados.forEach(
+        (d,i)=>{
 
-        const y =
-            altura -
-            margem -
-            (
-                d.valor / max
-            ) *
-            (
-                altura - margem - 20
+            const x =
+                margem +
+                (
+                    (largura - margem - 20)
+                    /
+                    Math.max(
+                        dados.length - 1,
+                        1
+                    )
+                ) * i;
+
+
+            const y =
+                altura -
+                margem -
+                (
+                    d.valor / max
+                ) *
+                (
+                    altura -
+                    margem -
+                    20
+                );
+
+
+            ctx.fillStyle =
+                "#123c69";
+
+
+            ctx.beginPath();
+
+
+            ctx.arc(
+                x,
+                y,
+                4,
+                0,
+                Math.PI * 2
             );
 
-        ctx.fillStyle =
-            "#123c69";
 
-        ctx.beginPath();
+            ctx.fill();
 
-        ctx.arc(
-            x,
-            y,
-            4,
-            0,
-            Math.PI * 2
-        );
-
-        ctx.fill();
-
-    });
+        }
+    );
 
 }
 
 
-/* ================================
+/* =========================
    INICIALIZAÇÃO
-================================ */
+========================= */
 
 function inicializar(){
 
@@ -1782,7 +2344,10 @@ function inicializar(){
 
     mostrarGraficoHistorico();
 
+    atualizarSemaforo();
+
 }
+
 
 inicializar();
 
