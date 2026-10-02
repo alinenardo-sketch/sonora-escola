@@ -650,6 +650,64 @@
     margin-top: 6px;
     color: #91a8ba;
 }
+        
+      .registro-section {
+    margin-top: 40px;
+    padding: 30px;
+    background: #0d2033;
+    border: 1px solid #1e405c;
+    border-radius: 20px;
+}
+
+.formulario-medicao {
+    margin-top: 25px;
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 18px;
+    align-items: end;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.campo label {
+    color: #8fcfff;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.campo select,
+.campo input {
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid #31536b;
+    background: #132b40;
+    color: #ffffff;
+    font-size: 15px;
+}
+
+.botao-medicao {
+    padding: 14px 20px;
+    border: none;
+    border-radius: 10px;
+    background: #1683c7;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.botao-medicao:hover {
+    opacity: 0.85;
+}
+
+@media (max-width: 800px) {
+    .formulario-medicao {
+        grid-template-columns: 1fr;
+    }
+}  
     </style>
 
 </head>
@@ -906,6 +964,48 @@
         </div>
     </div>
 </section>
+        <div class="registro-section">
+
+    <div class="titulo-secao">
+        <span>NOVA MEDIÇÃO</span>
+        <h2>Registrar nível sonoro</h2>
+        <p>Insira uma medição para adicioná-la ao histórico do SONORA.</p>
+    </div>
+
+    <div class="formulario-medicao">
+
+        <div class="campo">
+            <label for="ambienteMedicao">Ambiente</label>
+
+            <select id="ambienteMedicao">
+                <option value="Biblioteca">Biblioteca</option>
+                <option value="Sala de aula">Sala de aula</option>
+                <option value="Corredor">Corredor</option>
+                <option value="Refeitório">Refeitório</option>
+                <option value="Pátio">Pátio</option>
+                <option value="Quadra">Quadra</option>
+            </select>
+        </div>
+
+        <div class="campo">
+            <label for="nivelMedicao">Nível sonoro (dB)</label>
+
+            <input
+                type="number"
+                id="nivelMedicao"
+                min="0"
+                max="120"
+                placeholder="Ex.: 65"
+            >
+        </div>
+
+        <button class="botao-medicao" onclick="registrarMedicao()">
+            + Registrar medição
+        </button>
+
+    </div>
+
+</div>
         <section class="historico-section">
     <div class="titulo-secao">
         <span>HISTÓRICO</span>
@@ -1474,6 +1574,57 @@ function mostrarDetalhes(nome) {
 
 function fecharDetalhes() {
     document.getElementById("modalAmbiente").style.display = "none";
+}
+    function registrarMedicao() {
+
+    const ambiente = document.getElementById("ambienteMedicao").value;
+    const nivel = Number(document.getElementById("nivelMedicao").value);
+
+    if (!nivel && nivel !== 0) {
+        alert("Digite o nível sonoro da medição.");
+        return;
+    }
+
+    if (nivel < 0 || nivel > 120) {
+        alert("Digite um valor entre 0 e 120 dB.");
+        return;
+    }
+
+    const agora = new Date();
+
+    const hora = agora.toLocaleTimeString("pt-BR", {
+        hour: "2-digit",
+        minute: "2-digit"
+    });
+
+    let situacao = "";
+
+    if (nivel < 50) {
+        situacao = "🟢 Tranquilo";
+    } else if (nivel < 70) {
+        situacao = "🟡 Atenção";
+    } else {
+        situacao = "🔴 Elevado";
+    }
+
+    const tabela = document.querySelector(
+        ".tabela-historico tbody"
+    );
+
+    const novaLinha = document.createElement("tr");
+
+    novaLinha.innerHTML = `
+        <td>${hora}</td>
+        <td>${ambiente}</td>
+        <td>${nivel} dB</td>
+        <td>${situacao}</td>
+    `;
+
+    tabela.appendChild(novaLinha);
+
+    document.getElementById("nivelMedicao").value = "";
+
+    alert("Medição registrada com sucesso!");
 }
 </script>
 
