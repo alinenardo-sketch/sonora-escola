@@ -611,6 +611,45 @@
         min-width: 600px;
     }
 }
+        .horarios-section {
+    margin-top: 40px;
+    padding: 30px;
+    background: #0d2033;
+    border: 1px solid #1e405c;
+    border-radius: 20px;
+}
+
+.grafico-horarios {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.horario-item {
+    width: 100%;
+}
+
+.horario-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.horario-info strong {
+    color: #ffffff;
+}
+
+.horario-info span {
+    color: #8fcfff;
+    font-weight: bold;
+}
+
+.horario-item small {
+    display: block;
+    margin-top: 6px;
+    color: #91a8ba;
+}
     </style>
 
 </head>
@@ -873,7 +912,81 @@
         <h2>Histórico de medições</h2>
         <p>Acompanhamento dos níveis sonoros registrados nos ambientes.</p>
     </div>
+<section class="horarios-section">
+    <div class="titulo-secao">
+        <span>ANÁLISE TEMPORAL</span>
+        <h2>Níveis de ruído ao longo do dia</h2>
+        <p>Comparação dos níveis sonoros registrados em diferentes horários.</p>
+    </div>
 
+    <div class="grafico-horarios">
+        <div class="horario-item">
+            <div class="horario-info">
+                <strong>08:00</strong>
+                <span>38 dB</span>
+            </div>
+            <div class="barra-fundo">
+                <div class="barra verde" style="width: 38%;"></div>
+            </div>
+            <small>Biblioteca</small>
+        </div>
+
+        <div class="horario-item">
+            <div class="horario-info">
+                <strong>09:30</strong>
+                <span>52 dB</span>
+            </div>
+            <div class="barra-fundo">
+                <div class="barra amarelo" style="width: 52%;"></div>
+            </div>
+            <small>Sala de aula</small>
+        </div>
+
+        <div class="horario-item">
+            <div class="horario-info">
+                <strong>10:15</strong>
+                <span>61 dB</span>
+            </div>
+            <div class="barra-fundo">
+                <div class="barra amarelo" style="width: 61%;"></div>
+            </div>
+            <small>Corredor</small>
+        </div>
+
+        <div class="horario-item">
+            <div class="horario-info">
+                <strong>12:15</strong>
+                <span>76 dB</span>
+            </div>
+            <div class="barra-fundo">
+                <div class="barra vermelho" style="width: 76%;"></div>
+            </div>
+            <small>Refeitório</small>
+        </div>
+
+        <div class="horario-item">
+            <div class="horario-info">
+                <strong>13:00</strong>
+                <span>79 dB</span>
+            </div>
+            <div class="barra-fundo">
+                <div class="barra vermelho" style="width: 79%;"></div>
+            </div>
+            <small>Pátio</small>
+        </div>
+
+        <div class="horario-item">
+            <div class="horario-info">
+                <strong>15:30</strong>
+                <span>84 dB</span>
+            </div>
+            <div class="barra-fundo">
+                <div class="barra vermelho" style="width: 84%;"></div>
+            </div>
+            <small>Quadra</small>
+        </div>
+    </div>
+</section>
     <div class="tabela-container">
         <table class="tabela-historico">
             <thead>
