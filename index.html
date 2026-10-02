@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SONORA - Monitoramento Sonoro Escolar</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #07111f;
+            color: white;
+            line-height: 1.5;
+        }
+
+        header {
+            background: #0d1b2d;
+            padding: 20px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #243b55;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            font-size: 35px;
+        }
+
+        .logo h1 {
+            font-size: 26px;
+            letter-spacing: 3px;
+        }
+
+        .logo p {
+            color: #8fa6bd;
+            font-size: 12px;
+        }
+
+        .botao {
+            background: #1976d2;
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .botao:hover {
+            background: #2196f3;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .hero {
+            margin: 35px 0;
+            padding: 45px;
+            border-radius: 22px;
+            background: linear-gradient(135deg, #102a43, #0b1727);
+            border: 1px solid #244866;
+        }
+
+        .tag {
+            color: #55b6ff;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .hero h2 {
+            font-size: 45px;
+            line-height: 1.1;
+            margin: 15px 0;
+        }
+
+        .hero h2 span {
+            color: #55b6ff;
+        }
+
+        .hero p {
+            color: #a8b8c9;
+            max-width: 750px;
+        }
+
+        .indicadores {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: #0d1b2d;
+            border: 1px solid #1d344d;
+            border-radius: 18px;
+            padding: 22px;
+        }
+
+        .card span {
+            color: #91a6bb;
+            font-size: 13px;
+        }
+
+        .numero {
+            display: block;
+            font-size: 35px;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .verde {
+            color: #4ee58a;
+        }
+
+        .amarelo {
+            color: #ffd84d;
+        }
+
+        .vermelho {
+            color: #ff6262;
+        }
+
+        .titulo {
+            margin-bottom: 18px;
+        }
+
+        .titulo pequeno {
+            color: #55b6ff;
+            letter-spacing: 2px;
+        }
+
+        .titulo h2 {
+            margin-top: 5px;
+        }
+
+        .ambientes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-bottom: 35px;
+        }
+
+        .ambiente {
+            background: #0d1b2d;
+            border: 1px solid #1d344d;
+            border-radius: 18px;
+            padding: 22px;
+        }
+
+        .ambiente-topo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .icone {
+            font-size: 35px;
+        }
+
+        .status {
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .status.verde {
+            background: #123d29;
+        }
+
+        .status.amarelo {
+            background: #493b0d;
+        }
+
+        .status.vermelho {
+            background: #491919;
+        }
+
+        .ambiente h3 {
+            margin-top: 12px;
+        }
+
+        .db {
+            font-size: 38px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .db small {
+            font-size: 15px;
+            color: #91a6bb;
+        }
+
+        .descricao {
+            color: #91a6bb;
+            font-size: 13px;
+        }
+
+        .semaforo {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .luz {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            opacity: 0.15;
+        }
+
+        .luz.acesa {
+            opacity: 1;
+            box-shadow: 0 0 25px currentColor;
+        }
+
+        .luz.vermelha {
+            background: #ff3d3d;
+            color: #ff3d3d;
+        }
+
+        .luz.amarela {
+            background: #ffd43b;
+            color: #ffd43b;
+        }
+
+        .luz.verde {
+            background: #35e67d;
+            color: #35e67d;
+        }
+
+        .acessibilidade {
+            margin: 35px 0;
+            padding: 30px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #123246, #101e31);
+            border: 1px solid #28556e;
+        }
+
+        .acessibilidade h2 {
+            margin: 8px 0 12px;
+        }
+
+        .acessibilidade p {
+            color: #a9bacb;
+            margin-bottom: 10px;
+        }
+
+        .recomendacoes {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .recomendacao {
+            background: #101f31;
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        .recomendacao .icone {
+            font-size: 28px;
+        }
+
+        .recomendacao h3 {
+            font-size: 16px;
+            margin: 8px 0;
+        }
+
+        .recomendacao p {
+            color: #91a6bb;
+            font-size: 13px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 35px;
+            margin-top: 50px;
+            background: #050c15;
+            color: #75899e;
+        }
+
+        @media (max-width: 850px) {
+
+            .indicadores,
+            .ambientes,
+            .recomendacoes {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero h2 {
+                font-size: 35px;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .indicadores,
+            .ambientes,
+            .recomendacoes {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 28px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+
+        <div class="logo-icon">🔊</div>
+
+        <div>
+            <h1>SONORA</h1>
+            <p>Monitoramento Sonoro Escolar</p>
+        </div>
+
+    </div>
+
+    <button class="botao" onclick="atualizarDados()">
+        ↻ Atualizar dados
+    </button>
+
+</header>
+
+
+<main class="container">
+
+
+    <section class="hero">
+
+        <span class="tag">
+            PROJETO DE ACESSIBILIDADE
+        </span>
+
+        <h2>
+            Como está o nível de ruído
+            <span>na nossa escola?</span>
+        </h2>
+
+        <p>
+            O SONORA é um sistema de monitoramento dos níveis
+            de ruído nos diferentes ambientes escolares,
+            permitindo identificar locais que merecem atenção
+            e pensar em estratégias de acessibilidade sensorial.
+        </p>
+
+    </section>
+
+
+    <section class="indicadores">
+
+        <div class="card">
+            <span>Ambientes monitorados</span>
+            <strong class="numero" id="total">6</strong>
+        </div>
+
+        <div class="card">
+            <span>Ambientes tranquilos</span>
+            <strong class="numero verde" id="verdes">0</strong>
+        </div>
+
+        <div class="card">
+            <span>Ambientes em atenção</span>
+            <strong class="numero amarelo" id="amarelos">0</strong>
+        </div>
+
+        <div class="card">
+            <span>Ambientes elevados</span>
+            <strong class="numero vermelho" id="vermelhos">0</strong>
+        </div>
+
+    </section>
+
+
+    <section class="card">
+
+        <div class="titulo">
+
+            <small>SITUAÇÃO GERAL</small>
+
+            <h2 id="situacao">
+                Analisando...
+            </h2>
+
+        </div>
+
+        <div class="semaforo">
+
+            <div class="luz vermelha" id="luzVermelha"></div>
+
+            <div class="luz amarela" id="luzAmarela"></div>
+
+            <div class="luz verde" id="luzVerde"></div>
+
+        </div>
+
+        <p class="descricao" id="descricao">
+            Analisando os ambientes da escola...
+        </p>
+
+    </section>
+
+
+    <br>
+
+
+    <section>
+
+        <div class="titulo">
+
+            <small>MONITORAMENTO</small>
+
+            <h2>Ambientes da escola</h2>
+
+        </div>
+
+
+        <div class="ambientes" id="listaAmbientes"></div>
+
+    </section>
+
+
+    <section class="acessibilidade">
+
+        <span class="tag">
+            ACESSIBILIDADE SENSORIAL
+        </span>
+
+        <h2>
+            Ruído e estudantes com TEA
+        </h2>
+
+        <p>
+            Alguns estudantes com TEA podem apresentar maior
+            sensibilidade a estímulos sonoros. As características
+            sensoriais variam entre as pessoas.
+        </p>
+
+        <p>
+            O objetivo do SONORA é identificar ambientes que
+            merecem atenção e apoiar a escola na criação de
+            estratégias de acessibilidade e redução de estímulos
+            sonoros excessivos.
+        </p>
+
+    </section>
+
+
+    <section>
+
+        <div class="titulo">
+
+            <small>ESTRATÉGIAS</small>
+
+            <h2>O que a escola pode fazer?</h2>
+
+        </div>
+
+
+        <div class="recomendacoes">
+
+            <div class="recomendacao">
+
+                <div class="icone">🔇</div>
+
+                <h3>Reduzir ruídos</h3>
+
+                <p>
+                    Identificar e reduzir fontes de sons
+                    desnecessários.
+                </p>
+
+            </div>
+
+
+            <div class="recomendacao">
+
+                <div class="icone">🧩</div>
+
+                <h3>Espaço tranquilo</h3>
+
+                <p>
+                    Disponibilizar um local com menor
+                    estímulo sonoro quando necessário.
+                </p>
+
+            </div>
+
+
+            <div class="recomendacao">
+
+                <div class="icone">👥</div>
+
+                <h3>Conscientização</h3>
+
+                <p>
+                    Trabalhar a importância do cuidado
+                    com o ambiente sonoro.
+                </p>
+
+            </div>
+
+
+            <div class="recomendacao">
+
+                <div class="icone">📊</div>
+
+                <h3>Monitoramento</h3>
+
+                <p>
+                    Comparar ambientes e horários para
+                    identificar padrões.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<footer>
+
+    <strong>SONORA</strong>
+
+    <p>
+        Projeto educacional de monitoramento sonoro,
+        tecnologia e acessibilidade.
+    </p>
+
+</footer>
+
+
+<script>
+
+    const ambientes = [
+
+        {
+            nome: "Biblioteca",
+            icone: "📚",
+            db: 38
+        },
+
+        {
+            nome: "Sala de aula",
+            icone: "🏫",
+            db: 52
+        },
+
+        {
+            nome: "Corredor",
+            icone: "🚶",
+            db: 61
+        },
+
+        {
+            nome: "Refeitório",
+            icone: "🍽️",
+            db: 76
+        },
+
+        {
+            nome: "Pátio",
+            icone: "🌳",
+            db: 79
+        },
+
+        {
+            nome: "Quadra",
+            icone: "🏀",
+            db: 84
+        }
+
+    ];
+
+
+    function classificar(db) {
+
+        if (db < 50) {
+
+            return {
+                classe: "verde",
+                status: "TRANQUILO",
+                texto: "Ambiente com menor intensidade sonora."
+            };
+
+        }
+
+        if (db < 70) {
+
+            return {
+                classe: "amarelo",
+                status: "ATENÇÃO",
+                texto: "Nível moderado. Recomenda-se observar o ruído."
+            };
+
+        }
+
+        return {
+            classe: "vermelho",
+            status: "ELEVADO",
+            texto: "Nível elevado. Recomenda-se investigar e reduzir fontes de ruído."
+        };
+
+    }
+
+
+    function mostrarAmbientes() {
+
+        const lista =
+            document.getElementById("listaAmbientes");
+
+        lista.innerHTML = "";
+
+        ambientes.forEach(ambiente => {
+
+            const resultado =
+                classificar(ambiente.db);
+
+            lista.innerHTML += `
+
+                <div class="ambiente">
+
+                    <div class="ambiente-topo">
+
+                        <div class="icone">
+                            ${ambiente.icone}
+                        </div>
+
+                        <span class="status ${resultado.classe}">
+                            ${resultado.status}
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        ${ambiente.nome}
+                    </h3>
+
+                    <div class="db">
+                        ${ambiente.db}
+                        <small>dB</small>
+                    </div>
+
+                    <p class="descricao">
+                        ${resultado.texto}
+                    </p>
+
+                </div>
+
+            `;
+
+        });
+
+    }
+
+
+    function atualizarResumo() {
+
+        let verdes = 0;
+        let amarelos = 0;
+        let vermelhos = 0;
+
+        ambientes.forEach(ambiente => {
+
+            const resultado =
+                classificar(ambiente.db);
+
+            if (resultado.classe === "verde")
+                verdes++;
+
+            if (resultado.classe === "amarelo")
+                amarelos++;
+
+            if (resultado.classe === "vermelho")
+                vermelhos++;
+
+        });
+
+
+        document.getElementById("verdes").textContent = verdes;
+
+        document.getElementById("amarelos").textContent = amarelos;
+
+        document.getElementById("vermelhos").textContent = vermelhos;
+
+
+        const media =
+            ambientes.reduce(
+                (soma, ambiente) => soma + ambiente.db,
+                0
+            ) / ambientes.length;
+
+
+        const resultado =
+            classificar(media);
+
+
+        document.getElementById("situacao").textContent =
+            `${resultado.status} — média de ${Math.round(media)} dB`;
+
+        document.getElementById("descricao").textContent =
+            resultado.texto;
+
+
+        document
+            .querySelectorAll(".luz")
+            .forEach(luz => luz.classList.remove("acesa"));
+
+
+        if (resultado.classe === "verde") {
+
+            document
+                .getElementById("luzVerde")
+                .classList.add("acesa");
+
+        }
+
+
+        if (resultado.classe === "amarelo") {
+
+            document
+                .getElementById("luzAmarela")
+                .classList.add("acesa");
+
+        }
+
+
+        if (resultado.classe === "vermelho") {
+
+            document
+                .getElementById("luzVermelha")
+                .classList.add("acesa");
+
+        }
+
+    }
+
+
+    function atualizarDados() {
+
+        ambientes.forEach(ambiente => {
+
+            const variacao =
+                Math.floor(Math.random() * 7) - 3;
+
+            ambiente.db += variacao;
+
+            if (ambiente.db < 30)
+                ambiente.db = 30;
+
+            if (ambiente.db > 100)
+                ambiente.db = 100;
+
+        });
+
+
+        mostrarAmbientes();
+
+        atualizarResumo();
+
+    }
+
+
+    mostrarAmbientes();
+
+    atualizarResumo();
+
+</script>
+
+</body>
+
+</html>
