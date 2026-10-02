@@ -12,7 +12,6 @@
             margin: 0;
             padding: 0;
         }
-
         body {
             font-family: Arial, sans-serif;
             background: #07111f;
@@ -497,6 +496,75 @@
         grid-template-columns: 1fr;
     }
 }
+        .modal-ambiente {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal-conteudo {
+    width: min(600px, 100%);
+    background: #10263a;
+    border: 1px solid #2d526e;
+    border-radius: 22px;
+    padding: 30px;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+.fechar-modal {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    border: none;
+    background: transparent;
+    color: #ffffff;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.detalhe-titulo {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.detalhe-db {
+    font-size: 42px;
+    font-weight: bold;
+    color: #8fd3ff;
+    margin: 15px 0;
+}
+
+.detalhe-status {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 20px;
+    background: #1c4059;
+    margin-bottom: 20px;
+}
+
+.detalhe-info {
+    display: grid;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.detalhe-info div {
+    padding: 14px;
+    background: #173248;
+    border-radius: 12px;
+}
+
+.detalhe-info strong {
+    display: block;
+    margin-bottom: 4px;
+    color: #8fcfff;
+}
     </style>
 
 </head>
@@ -632,42 +700,42 @@
 
     <div class="mapa-escola">
 
-        <div class="local biblioteca">
+        <div class="local biblioteca" onclick="mostrarDetalhes('Biblioteca')">
             <div class="icone-local">📚</div>
             <strong>Biblioteca</strong>
             <span>38 dB</span>
             <small>🟢 Tranquilo</small>
         </div>
 
-        <div class="local sala">
+        <div class="local sala" onclick="mostrarDetalhes('Sala de aula')">
             <div class="icone-local">🏫</div>
             <strong>Sala de aula</strong>
             <span>52 dB</span>
             <small>🟡 Atenção</small>
         </div>
 
-        <div class="local corredor">
+      <div class="local corredor" onclick="mostrarDetalhes('Corredor')">
             <div class="icone-local">🚶</div>
             <strong>Corredor</strong>
             <span>61 dB</span>
             <small>🟡 Atenção</small>
         </div>
 
-        <div class="local refeitorio">
+        <div class="local refeitorio" onclick="mostrarDetalhes('Refeitório')">
             <div class="icone-local">🍽️</div>
             <strong>Refeitório</strong>
             <span>76 dB</span>
             <small>🔴 Elevado</small>
         </div>
 
-        <div class="local patio">
+        <div class="local patio" onclick="mostrarDetalhes('Pátio')">
             <div class="icone-local">🌳</div>
             <strong>Pátio</strong>
             <span>79 dB</span>
             <small>🔴 Elevado</small>
         </div>
 
-        <div class="local quadra">
+        <div class="local quadra" onclick="mostrarDetalhes('Quadra')">
             <div class="icone-local">⚽</div>
             <strong>Quadra</strong>
             <span>84 dB</span>
@@ -676,6 +744,15 @@
 
     </div>
 </section>
+            <div id="modalAmbiente" class="modal-ambiente">
+    <div class="modal-conteudo">
+
+        <button class="fechar-modal" onclick="fecharDetalhes()">×</button>
+
+        <div id="detalhesAmbiente"></div>
+
+    </div>
+</div>
         </div>
 <section class="grafico-section">
     <div class="titulo-secao">
@@ -1097,7 +1174,88 @@
     mostrarAmbientes();
 
     atualizarResumo();
+function mostrarDetalhes(nome) {
 
+    const ambiente = ambientes.find(item => item.nome === nome);
+
+    if (!ambiente) return;
+
+    let status = "";
+
+    if (ambiente.db < 50) {
+        status = "🟢 Tranquilo";
+    } else if (ambiente.db < 70) {
+        status = "🟡 Atenção";
+    } else {
+        status = "🔴 Elevado";
+    }
+
+    let fonte = "";
+    let recomendacao = "";
+
+    if (nome === "Biblioteca") {
+        fonte = "Conversas em baixo volume e circulação de pessoas.";
+        recomendacao = "Manter o ambiente silencioso e organizado.";
+    }
+
+    if (nome === "Sala de aula") {
+        fonte = "Conversas entre estudantes e atividades da turma.";
+        recomendacao = "Organizar momentos de fala e reduzir conversas paralelas.";
+    }
+
+    if (nome === "Corredor") {
+        fonte = "Circulação de estudantes e conversas durante as trocas de aula.";
+        recomendacao = "Evitar correria e conversas em volume elevado.";
+    }
+
+    if (nome === "Refeitório") {
+        fonte = "Conversas, movimentação de estudantes e utensílios.";
+        recomendacao = "Organizar o fluxo e incentivar conversas em volume moderado.";
+    }
+
+    if (nome === "Pátio") {
+        fonte = "Grande circulação, brincadeiras e conversas.";
+        recomendacao = "Observar os horários de maior intensidade sonora.";
+    }
+
+    if (nome === "Quadra") {
+        fonte = "Atividades esportivas, gritos e movimentação intensa.";
+        recomendacao = "Avaliar períodos de maior ruído e oferecer alternativas de menor estímulo quando necessário.";
+    }
+
+    document.getElementById("detalhesAmbiente").innerHTML = `
+        <h2 class="detalhe-titulo">${nome}</h2>
+
+        <div class="detalhe-db">${ambiente.db} dB</div>
+
+        <div class="detalhe-status">${status}</div>
+
+        <div class="detalhe-info">
+
+            <div>
+                <strong>🔊 Possível fonte do ruído</strong>
+                ${fonte}
+            </div>
+
+            <div>
+                <strong>💡 Recomendação</strong>
+                ${recomendacao}
+            </div>
+
+            <div>
+                <strong>📊 Tipo de dado</strong>
+                Medição simulada para demonstração do protótipo.
+            </div>
+
+        </div>
+    `;
+
+    document.getElementById("modalAmbiente").style.display = "flex";
+}
+
+function fecharDetalhes() {
+    document.getElementById("modalAmbiente").style.display = "none";
+}
 </script>
 
 </body>
