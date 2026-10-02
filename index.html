@@ -1482,11 +1482,9 @@
 
         });
 
-
-        mostrarAmbientes();
-
-        atualizarResumo();
-
+mostrarAmbientes();
+atualizarResumo();
+mostrarHistorico();
     }
 
 
@@ -1592,6 +1590,56 @@ function fecharDetalhes() {
 
     const agora = new Date();
 
+    const data = agora.toLocaleDateString("pt-BR");
+
+    const hora = agora.toLocaleTimeString("pt-BR", {
+        hour: "2-digit",
+        minute: "2-digit"
+    });
+
+    let situacao = "";
+
+    if (nivel < 50) {
+        situacao = "🟢 Tranquilo";
+    } else if (nivel < 70) {
+        situacao = "🟡 Atenção";
+    } else {
+        situacao = "🔴 Elevado";
+    }
+
+    const medicao = {
+        data: data,
+        hora: hora,
+        ambiente: ambiente,
+        nivel: nivel,
+        situacao: situacao
+    };
+
+    let historico = JSON.parse(
+        localStorage.getItem("sonoraHistorico")
+    ) || [];
+
+    historico.push(medicao);
+
+    localStorage.setItem(
+        "sonoraHistorico",
+        JSON.stringify(historico)
+    );
+
+    mostrarHistorico();
+
+    document.getElementById("nivelMedicao").value = "";
+
+    alert("Medição registrada com sucesso!");
+}
+
+    if (nivel < 0 || nivel > 120) {
+        alert("Digite um valor entre 0 e 120 dB.");
+        return;
+    }
+
+    const agora = new Date();
+
     const hora = agora.toLocaleTimeString("pt-BR", {
         hour: "2-digit",
         minute: "2-digit"
@@ -1625,6 +1673,32 @@ function fecharDetalhes() {
     document.getElementById("nivelMedicao").value = "";
 
     alert("Medição registrada com sucesso!");
+}
+    function mostrarHistorico() {
+
+    const tabela = document.querySelector(
+        ".tabela-historico tbody"
+    );
+
+    if (!tabela) return;
+
+    const historico = JSON.parse(
+        localStorage.getItem("sonoraHistorico")
+    ) || [];
+
+    historico.forEach(medicao => {
+
+        const novaLinha = document.createElement("tr");
+
+        novaLinha.innerHTML = `
+            <td>${medicao.data} ${medicao.hora}</td>
+            <td>${medicao.ambiente}</td>
+            <td>${medicao.nivel} dB</td>
+            <td>${medicao.situacao}</td>
+        `;
+
+        tabela.appendChild(novaLinha);
+    });
 }
 </script>
 
